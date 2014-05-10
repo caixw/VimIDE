@@ -1,22 +1,6 @@
 "==============================================================================
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
-" 需要安装以下程序：
-" gocode:     /nsf/gocode依赖此程序
-" 安装：go get github.com/nsf/gocode
-" windows 用安装不会出现一个命令窗口
-" go get -u -ldflags -H=windowsgui github.com/nsf/gocode
-"
-" ctags:     tagbar依赖些程序
-" http://ctags.sourceforge.net/
-"
-" gotags:    golang版本tagbar
-" 安装：get github.com/jstemmer/gotags
-"
-" python27   UltiSnips依赖此
-" windows如果是以python/dyn选项编译的，需要另外安装python,phthon3各个版本安装
-" 后，脚本都出错。python27可以正常使用。
-"
 " Author:       caixw <xnotepad@gmail.com>
 " Version:      0.1
 " Licence:      MIT
@@ -92,7 +76,7 @@ set showmode
 set showcmd
 " 设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
 set browsedir=last
-" 可折叠
+" 可折叠 foldenable/nofoldenable
 set foldenable
 " manual    手动折叠
 " indent    使用缩进表示折叠
@@ -102,6 +86,8 @@ set foldenable
 " marker    使用标记款待折叠，默认标记为{{{和}}}
 set foldmethod=syntax
 set foldlevel=10
+" 默认打开文件时的折叠层数
+set foldlevelstart=99
 " 按空格折叠代码
 nmap <space> za
 
@@ -315,6 +301,9 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-colors molokai              " 配色方案：desert, evening, molokai
-syn on                      " 自动开启语法高亮
+" 配色方案：desert, evening, molokai
+colors molokai
+" 自动开启语法高亮
+syn on
+" 映射代码实例的快捷键
 imap <C-u> <C-x><C-o>
