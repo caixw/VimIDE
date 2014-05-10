@@ -257,22 +257,24 @@ Plugin 'honza/vim-snippets'
 " 缩进高亮，显示一条竖线
 Plugin 'Yggdroot/indentLine'
 
-" buffer list
-Plugin 'techlivezheng/vim-plugin-minibufexpl'
-hi MBENormal               guifg=#808080 guibg=fg
-hi MBEChanged              guifg=#CD5907 guibg=fg
-hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
-hi MBEVisibleChanged       guifg=#F1266F guibg=fg
-hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
-hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
-
-
 " 显示git的更改内容
 Plugin 'airblade/vim-gitgutter'
 
-" airline 状态栏美化。状态栏箭头显示，需要特殊字体
+" 对git的包装
+Plugin 'tpope/vim-fugitive'
+
+" airline-tabline提供一个差不多功能的插件
+" Plugin 'techlivezheng/vim-plugin-minibufexpl'
+
+" airline 状态栏美化。
 Plugin 'bling/vim-airline'
+" 使用powerline的箭头，需要安装powerline字体
+let g:airline_powerline_fonts=1
 set laststatus=2
+" 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
+let g:airline#extensions#tabline#enabled = 1
+let airline#extensions#tabline#buffer_nr_show = 1
+
 
 " 主题 molokai
 Plugin 'tomasr/molokai'

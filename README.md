@@ -29,10 +29,21 @@ tagbar的golang支持，可用以下命令安装：
 
     get github.com/jstemmer/gotags
 
-####python
+#### python
 UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编译的，则需要
 另外安装python。windows安装Python3，一直提示各种错误，但是python27可以。
 
+#### powerline-fonts
+若需要使状态栏的箭头有特殊的效果，需要安装powerline-fonts的字体。linux下安装方式如下：
+
+    cd ~/.fonts
+    git clone https://github.com/Lokaltog/powerline-fonts
+    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    # Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
+    fc-cache -vf ~/.fonts
+
+windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体安装下即可。
 
 
 ###安装
