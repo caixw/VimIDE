@@ -183,7 +183,7 @@ Plugin 'scrooloose/nerdtree'
 let NERDTreeHighlightCursorline=1
 " 打开文件后，关闭nerdtree
 let NERDTreeQuitOnOpen=1
-let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$']
+let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
 map <F2> :NERDTreeToggle<CR>
 " 在nerdtree窗口中禁用BD命令。
 autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
@@ -272,7 +272,7 @@ hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 " 显示git的更改内容
 Plugin 'airblade/vim-gitgutter'
 
-" airline 状态栏美化，状态栏箭头显示，需要特殊字体
+" airline 状态栏美化。状态栏箭头显示，需要特殊字体
 Plugin 'bling/vim-airline'
 set laststatus=2
 
