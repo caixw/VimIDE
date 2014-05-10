@@ -36,8 +36,6 @@ set autochdir
 let $LANG='zh_CN.UTF-8'
 " 菜单语言，必须要在 set encoding之后,界面加载之前
 set langmenu=zh_CN.utf-8
-" 帮助语言为中文
-set helplang=cn
 " 窗口位置
 winpos 240 0
 " 自动隐藏鼠标
@@ -296,6 +294,12 @@ let g:startify_custom_footer = [
                 \ '',
                 \ '   适用于Go和PHP语言开发，由caixw整理发布！',
                 \ ]
+
+
+" 中文文档。
+Bundle 'asins/vimcdoc'
+" 帮助语言为中文
+set helplang=cn
 
 call vundle#end()
 
