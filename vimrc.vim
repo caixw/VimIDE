@@ -4,7 +4,7 @@
 " Author:       caixw <xnotepad@gmail.com>
 " Version:      0.1
 " Licence:      MIT
-" Last Change:  2014-05-08
+" Last Change:  2014-05-10
 " =============================================================================
 
 " 设置不兼容VI模式，在增强模式下运行
@@ -268,6 +268,10 @@ hi MBEVisibleChanged       guifg=#F1266F guibg=fg
 hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
 hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 
+
+" 显示git的更改内容
+Plugin 'airblade/vim-gitgutter'
+
 " airline 状态栏美化，状态栏箭头显示，需要特殊字体
 Plugin 'bling/vim-airline'
 set laststatus=2
@@ -301,8 +305,14 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-" 配色方案：desert, evening, molokai
-colors molokai
+" 配色方案，几种觉得还不错的方案：desert, evening, molokai
+" 区别对待配色方案：evening在linux下显示不是很好。windows下还是evening比较习惯。
+if has('win32')
+    colors evening
+else
+    colors molokai
+endif
+
 " 自动开启语法高亮
 syn on
 " 映射代码实例的快捷键
