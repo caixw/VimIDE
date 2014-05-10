@@ -40,6 +40,7 @@ UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编�
     mklink  _vimrc e:\xxx\VimIDE\vimrc.vim
 
 #### linux
-将vimrc.vim复制到~/下，重命名为.vimrc。或是使用ln命令
-做一个符号链接到vimrc.vim文件。
+将vimrc.vim复制到~/下，重命名为.vimrc。或是使用ln命令做一个符号链接到vimrc.vim文件：
+
+    ln -s ~/project/VimIDE/vimrc.vim ~/.vimrc
 
