@@ -270,6 +270,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 " 使用powerline的箭头，需要安装powerline字体
 let g:airline_powerline_fonts=1
+
 set laststatus=2
 " 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
 let g:airline#extensions#tabline#enabled = 1
