@@ -11,6 +11,7 @@
 set nocompatible
 
 
+
 " 覆盖文件时不备份
 set nobackup
 " 不启用交换文件
@@ -33,6 +34,7 @@ set autochdir
 "set noignorecase
 
 
+
 let $LANG='zh_CN.UTF-8'
 " 菜单语言，必须要在 set encoding之后,界面加载之前
 set langmenu=zh_CN.utf-8
@@ -40,6 +42,10 @@ set langmenu=zh_CN.utf-8
 winpos 240 0
 " 自动隐藏鼠标
 set mousehide
+" 右键点击时，弹出菜单
+set mousemodel=popup 
+" 去边框?
+set go=
 " 使用全局的剪贴板
 set guioptions+=a
 " 不显示菜单栏
@@ -64,6 +70,10 @@ set cursorcolumn
 set nu
 " 搜索时高亮关键字
 set hlsearch
+" 搜索时逐字高亮
+set incsearch
+" 命令行按tab补全时，显示一个候选菜单
+set wildmenu
 " 高亮显示匹配的符号，大括号什么的
 set showmatch
 " 右下角显示光标状态的行
@@ -90,6 +100,7 @@ set foldlevelstart=99
 nmap <space> za
 
 
+
 " 继承前一行的缩进方式
 set autoindent
 " 为C程序提供自动缩进
@@ -103,6 +114,7 @@ set softtabstop=4
 set shiftwidth=4
 "显示一些不显示的空白字符
 set listchars=tab:>-,eol:$,trail:-
+
 
 
 if has("gui_running")
@@ -263,7 +275,8 @@ Plugin 'airblade/vim-gitgutter'
 " 对git的包装
 Plugin 'tpope/vim-fugitive'
 
-" airline-tabline提供一个差不多功能的插件
+" buffer列表插件，可以显示多行。
+" airline-tabline提供一个差不多功能的插件，
 " Plugin 'techlivezheng/vim-plugin-minibufexpl'
 
 " airline 状态栏美化。
@@ -324,3 +337,8 @@ endif
 syn on
 " 映射代码实例的快捷键
 imap <C-u> <C-x><C-o>
+
+" 去除linux下菜单乱码，放最后。
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
