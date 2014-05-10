@@ -9,7 +9,7 @@ VimIDE
 ###依赖的软件
 
 #### /nsf/gocode
-Go语言的代码实例依赖些软件，直接使用go的安装命令安装即可：
+Go语言的代码补全依赖些软件，直接使用go的安装命令安装即可：
 
     go get github.com/nsf/gocode
 
@@ -31,7 +31,7 @@ tagbar的golang支持，可用以下命令安装：
 
 ####python
 UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编译的，则需要
-另外安装python。windows安装Python3，一直提示找不着py，但是python27可以。
+另外安装python。windows安装Python3，一直提示各种错误，但是python27可以。
 
 
 
