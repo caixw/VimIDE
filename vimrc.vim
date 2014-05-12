@@ -93,11 +93,12 @@ set foldenable
 " diff      对没有更改的内容进行折叠
 " marker    使用标记款待折叠，默认标记为{{{和}}}
 set foldmethod=syntax
-set foldlevel=10
-" 默认打开文件时的折叠层数
+setlocal foldlevel=1
+" 默认不折叠
 set foldlevelstart=99
 " 按空格折叠代码
-nmap <space> za
+"nmap <space> za
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 
 
