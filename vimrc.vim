@@ -344,8 +344,3 @@ imap <C-u> <C-x><C-o>
 " 去除linux下菜单乱码，放最后。
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-
-if &sh =~ '\<cmd'
-            let cmd = '"' . $VIMRUNTIME . '\diff"'
-            let eq = '""'
-endif
