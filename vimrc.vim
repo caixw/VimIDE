@@ -1,6 +1,8 @@
 "==============================================================================
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
+" bug: windows无法使用Gdiff功能
+"
 " Author:       caixw <xnotepad@gmail.com>
 " Version:      0.1
 " Licence:      MIT
@@ -15,7 +17,7 @@ set nocompatible
 " 覆盖文件时不备份
 set nobackup
 " 不启用交换文件
-set noswapfile
+"set noswapfile
 " 保存文件格式
 set fileformats=unix,dos
 " 读文件时，使用的编码。前2个顺序不能错
@@ -44,8 +46,6 @@ winpos 240 0
 set mousehide
 " 右键点击时，弹出菜单
 set mousemodel=popup 
-" 去边框?
-set go=
 " 使用全局的剪贴板
 set guioptions+=a
 " 不显示菜单栏
@@ -131,7 +131,10 @@ if has("gui_running")
     elseif has("gui_macvim")
         "set set guifont=Droid_Sans_Mono:h1
     elseif has("gui_win32")
-        set guifont=YaHei\ Consolas\ Hybrid:h10
+        " 需要需要airline的特殊字符，windows下需要设置字体
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+        set guifontwide=Microsoft\ YaHei\ UI:h10
+        "set guifont=YaHei\ Consolas\ Hybrid:h10
     else
         set guifont=YaHei\ Consolas\ Hybrid:h10
     endif
@@ -342,3 +345,7 @@ imap <C-u> <C-x><C-o>
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+if &sh =~ '\<cmd'
+            let cmd = '"' . $VIMRUNTIME . '\diff"'
+            let eq = '""'
+endif
