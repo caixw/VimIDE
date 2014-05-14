@@ -59,7 +59,7 @@ set guioptions-=b
 " 高度
 set lines=60
 " 宽度
-set columns=150
+set columns=120
 " 设定光标离窗口上下边界 5 行时窗口自动滚动
 set scrolloff=3
 " 高亮显示当前行
@@ -184,6 +184,8 @@ Plugin 'vim-scripts/jQuery'
 au BufRead,BufNewFile *.js set ft=jquery
 " golang语法高亮，与go/misc/vim下内容一样
 Plugin 'jnwhiteh/vim-golang'
+" 保存时，自动格式化
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " php文档产生工具
 Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
@@ -294,8 +296,10 @@ let g:airline#extensions#tabline#enabled = 1
 let airline#extensions#tabline#buffer_nr_show = 1
 
 
-" 主题 molokai
+" 一些好用的主题
+" molokai,solarized
 Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
 
 " 启动页面
 Plugin 'mhinz/vim-startify'
@@ -334,7 +338,8 @@ filetype plugin on
 if has('win32')
     colors evening
 else
-    colors molokai
+    set background=dark
+    colors solarized
 endif
 
 " 自动开启语法高亮
