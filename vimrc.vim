@@ -334,7 +334,7 @@ filetype plugin on
 "==============================================================================
 
 if has('win32')
-    colors evening
+    colors molokai
 else
     set background=dark
     colors solarized
