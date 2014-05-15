@@ -4,7 +4,7 @@
 " bug: windows无法使用Gdiff功能
 "
 " Author:       caixw <xnotepad@gmail.com>
-" Version:      0.1
+" Version:      0.1.1
 " Licence:      MIT
 " Last Change:  2014-05-10
 " =============================================================================
@@ -333,10 +333,8 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-" 配色方案，几种觉得还不错的方案：desert, evening, molokai
-" 区别对待配色方案：evening在linux下显示不是很好。windows下还是evening比较习惯。
 if has('win32')
-    colors evening
+    colors molokai
 else
     set background=dark
     colors solarized
