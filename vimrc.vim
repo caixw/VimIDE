@@ -292,8 +292,8 @@ let g:airline_powerline_fonts=1
 
 set laststatus=2
 " 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
-let g:airline#extensions#tabline#enabled = 1
-let airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let airline#extensions#tabline#buffer_nr_show = 1
 
 
 " 一些好用的主题
