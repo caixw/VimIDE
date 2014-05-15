@@ -283,7 +283,7 @@ Plugin 'tpope/vim-fugitive'
 
 " buffer列表插件，可以显示多行。
 " airline-tabline提供一个差不多功能的插件，
-" Plugin 'techlivezheng/vim-plugin-minibufexpl'
+ Plugin 'techlivezheng/vim-plugin-minibufexpl'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
