@@ -225,6 +225,7 @@ endif
 
 " 侧边栏显示相关函数定义等，依赖http://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
+let g:tagbar_width = 30
 nmap <F1> :TagbarToggle<CR>
 let g:tagbar_left =1
 " 定义go语言的tagbar 需要go get github.com/jstemmer/gotags
@@ -299,7 +300,7 @@ set laststatus=2
 " 一些好用的主题
 " molokai,solarized
 Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 
 " 启动页面
 Plugin 'mhinz/vim-startify'
@@ -333,12 +334,7 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-if has('win32')
-    colors molokai
-else
-    set background=dark
-    colors solarized
-endif
+colors molokai
 
 " 自动开启语法高亮
 syn on
