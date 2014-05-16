@@ -46,8 +46,6 @@ winpos 240 0
 set mousehide
 " 右键点击时，弹出菜单
 set mousemodel=popup 
-" 使用全局的剪贴板
-set guioptions+=a
 " 不显示菜单栏
 set guioptions-=m
 " 不显示工具栏
@@ -71,7 +69,7 @@ set nu
 " 搜索时高亮关键字
 set hlsearch
 " 搜索时逐字高亮
-set incsearch
+"set incsearch
 " 命令行按tab补全时，显示一个候选菜单
 set wildmenu
 " 高亮显示匹配的符号，大括号什么的
@@ -133,8 +131,8 @@ if has("gui_running")
         "set set guifont=Droid_Sans_Mono:h1
     elseif has("gui_win32")
         " 需要需要airline的特殊字符，windows下需要设置字体
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
-        set guifontwide=Microsoft\ YaHei\ UI:h10
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h10
+        set guifontwide=Microsoft\ YaHei\ UI:h9
         "set guifont=YaHei\ Consolas\ Hybrid:h10
     else
         set guifont=YaHei\ Consolas\ Hybrid:h10
