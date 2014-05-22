@@ -80,6 +80,9 @@ set ruler
 set showmode
 " 显示当前输入的命令
 set showcmd
+" 弹出框样式
+highlight Pmenu    guibg=darkgrey  guifg=black
+highlight PmenuSel guibg=lightgrey guifg=black
 " 设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
 set browsedir=last
 " 可折叠 foldenable/nofoldenable
