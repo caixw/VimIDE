@@ -199,7 +199,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 let NERDTreeHighlightCursorline=1
 " 打开文件后，关闭nerdtree
-let NERDTreeQuitOnOpen=1
+" let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
 map <F2> :NERDTreeToggle<CR>
 " 在nerdtree窗口中禁用BD命令。
