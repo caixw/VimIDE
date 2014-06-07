@@ -27,7 +27,7 @@ majutsushi/tagbar依赖些程序，可从以下地方获取安装程序
 #### gotags:
 tagbar的golang支持，可用以下命令安装：
 
-    get github.com/jstemmer/gotags
+    go get github.com/jstemmer/gotags
 
 #### python
 UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编译的，则需要
@@ -55,8 +55,8 @@ windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体
 
     mklink  _vimrc e:\xxx\VimIDE\vimrc.vim
 
-    cd vimfiles
-    git clone https://github.com/gmark/Vundle.vim
+    cd vimfiles/bundle/
+    git clone https://github.com/gmarik/Vundle.vim
     vim +PluginIntall
 
 
@@ -65,7 +65,7 @@ windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体
 
     ln -s ~/project/VimIDE/vimrc.vim ~/.vimrc
 
-    cd ~/.vim/
-    git clone https://github.com/gmark/Vundle.vim
+    cd ~/.vim/bundle/
+    git clone https://github.com/gmarik/Vundle.vim
     vim +PluginIntall
 
