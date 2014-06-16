@@ -327,6 +327,7 @@ filetype plugin on
 "==============================================================================
 
 colors solarized
+set background=dark
 
 " 自动开启语法高亮
 syn on
