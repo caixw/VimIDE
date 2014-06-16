@@ -134,9 +134,9 @@ if has("gui_running")
         "set set guifont=Droid_Sans_Mono:h1
     elseif has("gui_win32")
         " 需要需要airline的特殊字符，windows下需要设置字体
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h10
-        set guifontwide=Microsoft\ YaHei\ UI:h9
-        "set guifont=YaHei\ Consolas\ Hybrid:h10
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+        set guifontwide=Microsoft\ YaHei\ UI:h10
+        "set guifont=YaHei\ Consolas\ Hybrid:h11
     else
         set guifont=YaHei\ Consolas\ Hybrid:h10
     endif
