@@ -183,10 +183,9 @@ Plugin 'pangloss/vim-javascript'
 " jquery高亮
 Plugin 'vim-scripts/jQuery'
 au BufRead,BufNewFile *.js set ft=jquery
-" golang语法高亮，与go/misc/vim下内容一样
-Plugin 'jnwhiteh/vim-golang'
-" 保存时，自动格式化
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" 代码自动实例，和jnwhiteh/vim-golang有冲突，只能二选一
+Plugin 'Blackrush/vim-gocode'
 
 " php文档产生工具
 Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
@@ -215,14 +214,6 @@ function! s:CloseIfOnlyNerdTreeLeft()
         endif
     endif
 endfunction
-
-" golang 的自动补全 需要go get github.com/nsf/gocode
-" vim-gocode是nsf/gocode/vim的增强版本，但是linux出现vim-gocode不可使用的情况
-if has("win32")
-    Plugin 'Blackrush/vim-gocode'
-else
-    Plugin 'nsf/gocode', {'rtp': 'vim/'}
-endif
 
 " 侧边栏显示相关函数定义等，依赖http://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
@@ -300,8 +291,8 @@ set laststatus=2
 
 " 一些好用的主题
 " molokai,solarized
-Plugin 'tomasr/molokai'
-"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
 
 " 启动页面
 Plugin 'mhinz/vim-startify'
@@ -335,12 +326,15 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-colors molokai
+colors solarized
 
 " 自动开启语法高亮
 syn on
 " 映射代码实例的快捷键
 imap <C-u> <C-x><C-o>
+
+" 保存时，自动格式化
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " 去除linux下菜单乱码，放最后。
 source $VIMRUNTIME/delmenu.vim
