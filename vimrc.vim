@@ -326,7 +326,7 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-colors solarized
+colors evening
 set background=dark
 
 " 自动开启语法高亮
