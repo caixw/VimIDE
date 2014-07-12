@@ -291,7 +291,7 @@ set laststatus=2
 
 " 一些好用的主题
 " molokai,solarized
-"Plugin 'tomasr/molokai'
+Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
 " 启动页面
@@ -326,7 +326,7 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-colors evening
+colors molokai
 set background=dark
 
 " 自动开启语法高亮
