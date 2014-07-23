@@ -121,9 +121,9 @@ set listchars=tab:>-,eol:$,trail:-
 
 if has("gui_running")
     if has("gui_gtk2")
-        set guifont=Droid\ Sans\ Mono\ 10
+        set guifont=Droid\ Sans\ Mono\ 12
         " 比英文字体大一点，这样汉字的间距就不会太大了
-        set guifontwide=Droid\ Sans\ 12
+        set guifontwide=Droid\ Sans\ 13
     elseif has("gui_photon")
         "set guifont=Courier\ New:s11
     elseif has("gui_kde")
