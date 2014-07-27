@@ -69,3 +69,6 @@ windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体
     git clone https://github.com/gmarik/Vundle.vim
     vim +PluginIntall
 
+#### snippets
+修改了部分go.snippets，可以通过在vim-snippets/snippets/下用mklink(ln)命令创建到go.snippets的映射，具体操作参数上面的方式
+
