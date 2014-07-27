@@ -292,7 +292,7 @@ set laststatus=2
 " 一些好用的主题
 " molokai,solarized
 "Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 
 " 启动页面
 Plugin 'mhinz/vim-startify'
