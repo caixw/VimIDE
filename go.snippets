@@ -187,8 +187,16 @@ snippet fum
 	${0}
 # function for testing
 snippet fut
-	func Test${1:funcName}(t *testing.T) {
+	func Test${1:1}(t *testing.T) {
 		${2}
+	}
+	${0}
+#function for testing.example
+snippet fue
+	func Example${1:1}() {
+		${2:todo}
+
+		// Output: ${3:todo}
 	}
 	${0}
 # log printf
