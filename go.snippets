@@ -191,12 +191,20 @@ snippet fut
 		${2}
 	}
 	${0}
-#function for testing.example
+# function for testing.bemchmark
+snippet fub
+	func Benchmark${1:1}(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			${2://TODO}
+		}
+	}
+	${0}
+# function for testing.example
 snippet fue
 	func Example${1:1}() {
-		${2:todo}
+		${2://TODO}
 
-		// Output: ${3:todo}
+		// Output: ${3:TODO}
 	}
 	${0}
 # log printf
