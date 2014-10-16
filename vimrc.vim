@@ -265,6 +265,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 " 代码片段的定义，支持ultisnips和snippets
 Plugin 'honza/vim-snippets'
 
+" 多光标支持。
+Plugin 'terryma/vim-multiple-cursors'
+
 " 缩进高亮，显示一条竖线
 Plugin 'Yggdroot/indentLine'
 
@@ -333,6 +336,10 @@ set background=dark
 syn on
 " 映射代码实例的快捷键
 imap <C-u> <C-x><C-o>
+
+" 互换;和:这样在输入:w等命令是，不需要按到shift键
+nnoremap ; :
+nnoremap : ;
 
 " 保存时，自动格式化
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
