@@ -265,6 +265,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 " 代码片段的定义，支持ultisnips和snippets
 Plugin 'honza/vim-snippets'
 
+" 多光标支持。
+Plugin 'terryma/vim-multiple-cursors'
+
 " 缩进高亮，显示一条竖线
 Plugin 'Yggdroot/indentLine'
 

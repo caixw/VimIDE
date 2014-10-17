@@ -43,7 +43,7 @@ UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编�
     # Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
     fc-cache -vf ~/.fonts
 
-windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体安装下即可。
+windows下，则直接将https://github.com/Lokaltog/powerline-fonts 下的字体安装下即可。
 
 
 ###安装
