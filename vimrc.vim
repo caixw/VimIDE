@@ -200,7 +200,8 @@ let NERDTreeHighlightCursorline=1
 " 打开文件后，关闭nerdtree
 " let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
-map <F2> :NERDTreeToggle<CR>
+" 映射命令，注意后面将;:互换了，所以这里是;
+map <F2> ;NERDTreeToggle<CR>
 " 在nerdtree窗口中禁用BD命令。
 autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
 " 当关闭得只剩下nerdtree一个窗口时，自动关闭vim
@@ -218,7 +219,8 @@ endfunction
 " 侧边栏显示相关函数定义等，依赖http://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
 let g:tagbar_width = 30
-nmap <F1> :TagbarToggle<CR>
+" 映射命令，注意后面将;:互换了，所以这里是;
+nmap <F1> ;TagbarToggle<CR>
 let g:tagbar_left =1
 " 定义go语言的tagbar 需要go get github.com/jstemmer/gotags
 let g:tagbar_type_go = {
