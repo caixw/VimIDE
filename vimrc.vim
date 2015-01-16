@@ -184,9 +184,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'vim-scripts/jQuery'
 au BufRead,BufNewFile *.js set ft=jquery
 
-" 代码自动实例，和jnwhiteh/vim-golang有冲突，只能二选一
-Plugin 'Blackrush/vim-gocode'
-
 " php文档产生工具
 Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
 autocmd FileType php nnoremap <C-i> :call PhpDocSingle()<CR>
@@ -194,6 +191,7 @@ autocmd FileType php vnoremap <C-i> :call PhpDocRange()<CR>
 
 " emmet 中文介绍http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
 Plugin 'mattn/emmet-vim'
+
 " 侧边树状文件夹浏览
 Plugin 'scrooloose/nerdtree'
 let NERDTreeHighlightCursorline=1
@@ -217,37 +215,13 @@ endfunction
 
 " 侧边栏显示相关函数定义等，依赖http://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
+
 let g:tagbar_width = 30
 nmap <F1> :TagbarToggle<CR>
 let g:tagbar_left =1
-" 定义go语言的tagbar 需要go get github.com/jstemmer/gotags
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+
+" golang相关插件
+Plugin 'caixw/vim-go'
 
 " 代码错误检测 若PHP，需要PHP.exe在PATH环境变量中，其它应该也类似
 Plugin 'scrooloose/syntastic'
@@ -335,9 +309,6 @@ set background=dark
 syn on
 " 映射代码实例的快捷键
 imap <C-u> <C-x><C-o>
-
-" 保存时，自动格式化
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " 去除linux下菜单乱码，放最后。
 source $VIMRUNTIME/delmenu.vim
