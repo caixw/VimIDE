@@ -3,10 +3,9 @@
 "
 " bug: windows无法使用Gdiff功能
 "
-" Author:       caixw <xnotepad@gmail.com>
-" Version:      0.1.1
+" Author:       caixw <https://github.com/caixw>
+" Version:      0.2.2.150117
 " Licence:      MIT
-" Last Change:  2014-05-10
 " =============================================================================
 
 " 设置不兼容VI模式，在增强模式下运行
@@ -58,7 +57,7 @@ set guioptions-=b
 set lines=60
 " 宽度
 set columns=120
-" 设定光标离窗口上下边界 5 行时窗口自动滚动
+" 设定光标离窗口上下边界3行时窗口自动滚动
 set scrolloff=3
 " 高亮显示当前行
 set cursorline
