@@ -170,8 +170,6 @@ Plugin 'gmarik/Vundle.vim'
 " :PluginSearch                 搜索插件
 " :PluginClean!                 根据配置文件删除插件
 
-" C++ STL高亮
-Plugin 'Mizuchi/STL-Syntax'
 " CSS颜色值背景显示定义的颜色
 Plugin 'skammer/vim-css-color'
 " html5高亮
