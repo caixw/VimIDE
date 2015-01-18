@@ -254,8 +254,21 @@ Plugin 'tpope/vim-fugitive'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
-" 使用powerline的箭头，需要安装powerline字体
-let g:airline_powerline_fonts=1
+" 使用powerline的箭头，需要安装powerline字体，在未
+" 安装powerline字体的情况下，可以将此值设置为0，这
+" 将使用一些默认的符号替换。
+let g:airline_powerline_fonts = 0
+if g:airline_powerline_fonts != 1
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    let g:airline_left_sep = '▶'
+    let g:airline_left_alt_sep = '❯'
+    let g:airline_right_sep = '◀'
+    let g:airline_right_alt_sep = '❮'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '§'
+endif
 
 set laststatus=2
 " 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
