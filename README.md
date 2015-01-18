@@ -17,16 +17,22 @@ UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编�
 
 #### powerline-fonts
 若需要使状态栏的箭头有特殊的效果，需要安装powerline-fonts的字体。linux下安装方式如下：
-
-    cd ~/.fonts
-    git clone https://github.com/Lokaltog/powerline-fonts
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-    # Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
-    fc-cache -vf ~/.fonts
+```shell
+cd ~/.fonts
+git clone https://github.com/Lokaltog/powerline-fonts
+wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+# Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
+fc-cache -vf ~/.fonts
+```
 
 windows下，则直接将https://github.com/Lokaltog/powerline-fonts 下的字体安装下即可。
 
+若无法安装或是不想安装字体，而又想要这些特殊符号，可以使用以下方法，当然样式没有正宗的好看。
+在配置文件中找到以下变量，将使值改为0：
+```vim
+let g:airline_powerline_fonts = 0
+```
 
 ###安装
 
@@ -34,22 +40,24 @@ windows下，则直接将https://github.com/Lokaltog/powerline-fonts 下的字�
 #### windows
 将目录下的vimrc.vim复制到Vim根目录下，重命名为_vimrcwindows7之后的版
 本，可以使用mklink创建一个链接到vimrc.vim。
+```shell
+mklink  _vimrc e:\xxx\VimIDE\vimrc.vim
 
-    mklink  _vimrc e:\xxx\VimIDE\vimrc.vim
-
-    cd vimfiles/bundle/
-    git clone https://github.com/gmarik/Vundle.vim
-    vim +PluginIntall
+cd vimfiles/bundle/
+git clone https://github.com/gmarik/Vundle.vim
+vim +PluginIntall
+```
 
 
 #### linux
 将vimrc.vim复制到~/下，重命名为.vimrc。或是使用ln命令做一个符号链接到vimrc.vim文件。
+```shell
+ln -s ~/project/VimIDE/vimrc.vim ~/.vimrc
 
-    ln -s ~/project/VimIDE/vimrc.vim ~/.vimrc
-
-    cd ~/.vim/bundle/
-    git clone https://github.com/gmarik/Vundle.vim
-    vim +PluginIntall
+cd ~/.vim/bundle/
+git clone https://github.com/gmarik/Vundle.vim
+vim +PluginIntall
+```
 
 #### snippets
 修改了部分go.snippets，可以通过在vim-snippets/snippets/下用mklink(ln)命令创建到go.snippets的映射，具体操作参数上面的方式
