@@ -1,0 +1,165 @@
+# Snippets for Go
+
+priority -50
+
+# when to abbriviate and when not?
+# b doesn't work here, because it ignores whitespace
+# optional local name?
+snippet /^im/ "Import declaration" r
+import (
+	"${1:package}"
+)
+endsnippet
+
+snippet /^pkg/ "Package declaration" r
+// Copyright `!v strftime("%Y")` by caixw, All rights reserved.
+// Use of this source code is governed by a MIT
+// license that can be found in the LICENSE file.
+
+// Package $1 provides ...
+package ${1:main}
+endsnippet
+
+# Mostly converted from: https://github.com/AlanQuatermain/go-tmbundle
+snippet /^cons/ "Constants declaration" r
+const (
+	${1:constant}${2/(.+)/ /}${2:type} = ${0:value}
+)
+endsnippet
+
+snippet /^con/ "Constant declaration" r
+const ${1:name}${2/(.+)/ /}${2:type} = ${0:value}
+endsnippet
+
+snippet iota "Iota constant generator" b
+const (
+	${1:constant}${2/(.+)/ /}${2:type} = iota
+)
+endsnippet
+
+snippet st "Struct declaration" b
+type ${1:Struct} struct {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet inf "Interface declaration" b
+type ${1:Interface} interface {
+	${0:${VISUAL}}
+}
+endsnippet
+
+# statements
+snippet f "For loop" b
+for ${1:condition}${1/(.+)/ /}{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet fi "Integer for loop" b
+for ${1:i} := 0; $1 < ${2:N}; $1++ {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet fr "For range loop" b
+for ${1:k}, ${2:v} := range ${3:collection} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet if "If statement" b
+if ${1:condition}${1/(.+)/ /}{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet ierr "If err != nil" b
+if err ${1:!=} nil {
+	return ${2:err}
+}
+endsnippet
+
+snippet sw "Switch statement" b
+switch ${1:expression}${1/(.+)/ /}{
+case ${0}
+}
+endsnippet
+
+snippet sel "Select statement" b
+select {
+case${0}
+}
+endsnippet
+
+snippet case "Case clause" b
+case ${1:condition}:
+	${0:${VISUAL}}
+endsnippet
+
+snippet def "Default clause" b
+default:
+	${0:${VISUAL}}
+endsnippet
+
+snippet in "Interface{}" b
+interface{}
+endsnippet
+
+# functions
+snippet /^main/ "Main function" r
+func main() {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet /^fum/ "Method" r
+func (${1:receiver} ${2:type}) ${3:name}(${4:params})${5/(.+)/ /}${5:error} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet fun "Function" b
+func ${1:name}(${2:params})${3/(.+)/ /}${3:error} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet fut "testing function" b
+func Test${1:1}(t *testing.T) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet fub "benchmark function" b
+func Benchmark${1:1}(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		${2://TODO}
+	}
+}
+endsnippet
+
+# types and variables
+snippet map "Map type" b
+map[${1:string}]${2:valtype}
+endsnippet
+
+snippet : "Variable declaration :=" b
+${1:name} := ${0:value}
+endsnippet
+
+snippet var "Variable declaration" b
+var ${1:name}${2/(.+)/ /}${2:type}${3: = ${0:value}}
+endsnippet
+
+snippet vars "Variables declaration" b
+var (
+	${1:name}${2/(.+)/ /}${2:type}${3: = ${0:value} }
+)
+endsnippet
+
+snippet json "JSON field"
+\`json:"${1:displayName}"\`
+endsnippet
+
+# vim:ft=snippets:

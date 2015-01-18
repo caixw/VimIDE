@@ -230,11 +230,12 @@ let g:syntastic_warning_symbol='>'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
 " 代码片段的定义，支持ultisnips和snippets
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 " 多光标支持。
 Plugin 'terryma/vim-multiple-cursors'

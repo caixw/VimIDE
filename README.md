@@ -58,5 +58,6 @@ vim +PluginIntall
 ```
 
 #### snippets
-修改了部分go.snippets，可以通过在vim-snippets/snippets/下用mklink(ln)命令创建到go.snippets的映射，具体操作参数上面的方式
+在vimruntime下，windows为vim/vimfiles；linux下为~/.vim/创建一个硬链接到ultisnippets。
+硬链接的创建方式参照上面的代码。
 
