@@ -267,9 +267,26 @@ if g:airline_powerline_fonts != 1
     let g:airline_left_alt_sep = '❯'
     let g:airline_right_sep = '◀'
     let g:airline_right_alt_sep = '❮'
+    let g:airline_symbols.paste = 'ρ'
     let g:airline_symbols.linenr = '¶'
     let g:airline_symbols.branch = '§'
+    let g:airline_symbols.whitespace = 'Ξ'
+    let g:airline_symbols.readonly = ''
 endif
+
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : '标准',
+      \ 'i'  : '插入',
+      \ 'R'  : '替换',
+      \ 'c'  : '命令行',
+      \ 'v'  : '可视',
+      \ 'V'  : '可视',
+      \ '' : '可视',
+      \ 's'  : '选择',
+      \ 'S'  : '选择',
+      \ '' : '选择',
+      \ }
 
 set laststatus=2
 " 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
