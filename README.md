@@ -2,7 +2,6 @@ VimIDE
 ======
 
 自用的一个vim配置文件，针对gvim，不保证vim下能全部正常使用。适用于Go与PHP。
-不断更新中...
 
 
 
@@ -12,8 +11,8 @@ VimIDE
 vim-go中依赖的软件可以运行:GoInstallBinaries命令检测，缺失的都会提示。
 
 #### python
-UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编译的，则需要
-另外安装python。windows安装Python3，一直提示各种错误，但是python27可以。
+UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编译的，
+则需要另外安装python。windows安装Python3，一直提示各种错误，但是python27可以。
 
 #### powerline-fonts
 若需要使状态栏的箭头有特殊的效果，需要安装powerline-fonts的字体。linux下安装方式如下：
@@ -25,7 +24,6 @@ wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols
 # Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
 fc-cache -vf ~/.fonts
 ```
-
 windows下，则直接将https://github.com/Lokaltog/powerline-fonts 下的字体安装下即可。
 
 若无法安装或是不想安装字体，而又想要这些特殊符号，可以使用以下方法，当然样式没有正宗的好看。
@@ -38,8 +36,8 @@ let g:airline_powerline_fonts = 0
 
 
 #### windows
-将目录下的vimrc.vim复制到Vim根目录下，重命名为_vimrcwindows7之后的版
-本，可以使用mklink创建一个链接到vimrc.vim。
+将目录下的vimrc.vim复制到Vim根目录下，重命名为_vimrc，windows7及之后的版本，
+可以使用mklink创建一个链接到vimrc.vim。
 ```shell
 mklink  _vimrc e:\xxx\VimIDE\vimrc.vim
 
