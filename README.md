@@ -8,26 +8,8 @@ VimIDE
 
 ###依赖的软件
 
-#### /nsf/gocode
-Go语言的代码补全依赖些软件，直接使用go的安装命令安装即可：
-
-    go get github.com/nsf/gocode
-
-需要将gocode的目录放到path环境变量中。
-
-windows用户若不想一直有个命令行窗口存在，可以带上以下参数安装：
-
-    go get -u -ldflags -H=windowsgui github.com/nsf/gocode
-
-#### ctags:
-majutsushi/tagbar依赖些程序，可从以下地方获取安装程序
-
-    http://ctags.sourceforge.net/
-
-#### gotags:
-tagbar的golang支持，可用以下命令安装：
-
-    go get github.com/jstemmer/gotags
+#### vim-go
+vim-go中依赖的软件可以运行:GoInstallBinaries命令检测，缺失的都会提示。
 
 #### python
 UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编译的，则需要
