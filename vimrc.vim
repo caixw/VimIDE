@@ -3,10 +3,9 @@
 "
 " bug: windows无法使用Gdiff功能
 "
-" Author:       caixw <xnotepad@gmail.com>
-" Version:      0.1.1
+" Author:       caixw <https://github.com/caixw>
+" Version:      0.2.2.150117
 " Licence:      MIT
-" Last Change:  2014-05-10
 " =============================================================================
 
 " 设置不兼容VI模式，在增强模式下运行
@@ -58,7 +57,7 @@ set guioptions-=b
 set lines=60
 " 宽度
 set columns=120
-" 设定光标离窗口上下边界 5 行时窗口自动滚动
+" 设定光标离窗口上下边界3行时窗口自动滚动
 set scrolloff=3
 " 高亮显示当前行
 set cursorline
@@ -231,11 +230,12 @@ let g:syntastic_warning_symbol='>'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
 " 代码片段的定义，支持ultisnips和snippets
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 " 多光标支持。
 Plugin 'terryma/vim-multiple-cursors'
@@ -255,8 +255,38 @@ Plugin 'tpope/vim-fugitive'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
-" 使用powerline的箭头，需要安装powerline字体
-let g:airline_powerline_fonts=1
+" 使用powerline的箭头，需要安装powerline字体，在未
+" 安装powerline字体的情况下，可以将此值设置为0，这
+" 将使用一些默认的符号替换。
+let g:airline_powerline_fonts = 0
+if g:airline_powerline_fonts != 1
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    let g:airline_left_sep = '▶'
+    let g:airline_left_alt_sep = '❯'
+    let g:airline_right_sep = '◀'
+    let g:airline_right_alt_sep = '❮'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '§'
+    let g:airline_symbols.whitespace = 'Ξ'
+    let g:airline_symbols.readonly = ''
+endif
+
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : '标准',
+      \ 'i'  : '插入',
+      \ 'R'  : '替换',
+      \ 'c'  : '命令行',
+      \ 'v'  : '可视',
+      \ 'V'  : '可视',
+      \ '' : '可视',
+      \ 's'  : '选择',
+      \ 'S'  : '选择',
+      \ '' : '选择',
+      \ }
 
 set laststatus=2
 " 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
