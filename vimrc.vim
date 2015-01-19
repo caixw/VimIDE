@@ -132,7 +132,7 @@ if has("gui_running")
     elseif has("gui_macvim")
         "set set guifont=Droid_Sans_Mono:h1
     elseif has("gui_win32")
-        " 需要需要airline的特殊字符，windows下需要设置字体
+        " 需要需要airline的特殊字符
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
         set guifontwide=Microsoft\ YaHei\ UI:h12
         "set guifont=YaHei\ Consolas\ Hybrid:h11
@@ -234,9 +234,6 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
-" 代码片段的定义，支持ultisnips和snippets
-"Plugin 'honza/vim-snippets'
-
 " 多光标支持。
 Plugin 'terryma/vim-multiple-cursors'
 
@@ -258,7 +255,7 @@ Plugin 'bling/vim-airline'
 " 使用powerline的箭头，需要安装powerline字体，在未
 " 安装powerline字体的情况下，可以将此值设置为0，这
 " 将使用一些默认的符号替换。
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 if g:airline_powerline_fonts != 1
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
