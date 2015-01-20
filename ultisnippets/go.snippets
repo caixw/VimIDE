@@ -11,12 +11,11 @@ import (
 )
 endsnippet
 
-snippet /^pkg/ "Package declaration" r
+snippet fh "文件头" b
 // Copyright `!v strftime("%Y")` by caixw, All rights reserved.
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
 
-// Package $1 provides ...
 package ${1:main}
 endsnippet
 
@@ -137,6 +136,10 @@ func Benchmark${1:1}(b *testing.B) {
 		${2://TODO}
 	}
 }
+endsnippet
+
+snippet fui "interface function" b
+${1:funName}(${2:params})${3:error}
 endsnippet
 
 # types and variables
