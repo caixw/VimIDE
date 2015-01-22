@@ -218,7 +218,8 @@ nmap <F1> :TagbarToggle<CR>
 let g:tagbar_left =1
 
 " golang相关插件
-Plugin 'caixw/vim-go'
+Plugin 'fatih/vim-go'
+let g:go_highlight_build_constraints = 1
 
 " 代码错误检测 若PHP，需要PHP.exe在PATH环境变量中，其它应该也类似
 Plugin 'scrooloose/syntastic'
