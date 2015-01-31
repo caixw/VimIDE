@@ -50,11 +50,6 @@ do {
 endsnippet
 
 snippet doci "doc_i"
-/**
- * $1
- * @package ${2:default}
- * @author ${3:`!v g:snips_author`}
- **/
 interface ${1:someClass} {
 	${4}
 } // END interface $1"
@@ -102,7 +97,7 @@ snippet log "log"
 error_log(var_export(${1}, true));${2}
 endsnippet
 
-snippet post "post"
+snippet P "post"
 $_POST['${1}']${2}
 endsnippet
 
@@ -110,8 +105,12 @@ snippet req1 "req1"
 require_once '${1:file}';${2}
 endsnippet
 
-snippet session "session"
+snippet S "session"
 $_SESSION['${1}']${2}
+endsnippet
+
+snippet C "cookie"
+$_COOKIE['${1}']${2}
 endsnippet
 
 snippet t "t"
@@ -162,11 +161,6 @@ $0
 endsnippet
 
 snippet pub "Public function" b
-/**
- * ${3:undocumented function}
- *
- * @return ${4:void}
- */
 public function ${1:name}(${2:$param}) {
 	${VISUAL}${5:return null;}
 }
@@ -186,11 +180,6 @@ $0
 endsnippet
 
 snippet pri "Private function" b
-/**
- * ${3:undocumented function}
- *
- * @return ${4:void}
- */
 private function ${1:name}(${2:$param}) {
 	${VISUAL}${5:return null;}
 }
@@ -198,11 +187,6 @@ $0
 endsnippet
 
 snippet pubs "Public static function" b
-/**
- * ${3:undocumented function}
- *
- * @return ${4:void}
- */
 public static function ${1:name}(${2:$param}) {
 	${VISUAL}${5:return null;}
 }
@@ -210,11 +194,6 @@ $0
 endsnippet
 
 snippet pros "Protected static function" b
-/**
- * ${3:undocumented function}
- *
- * @return ${4:void}
- */
 protected static function ${1:name}(${2:$param}) {
 	${VISUAL}${5:return null;}
 }
@@ -222,11 +201,6 @@ $0
 endsnippet
 
 snippet pris "Private static function" b
-/**
- * ${3:undocumented function}
- *
- * @return ${4:void}
- */
 private static function ${1:name}(${2:$param}) {
 	${VISUAL}${5:return null;}
 }
@@ -263,10 +237,9 @@ endsnippet
 
 snippet cls "Class declaration template" b
 /**
- * Class ${2:`!p snip.rv=snip.fn.split('.')[0]`}
- * @author ${3:`!v g:snips_author`}
+ * $2
  */
-$1class $2 {
+$1class ${2:clsName} {
 	public function ${4:__construct}(${5:$options}) {
 		${6:// code}
 	}
