@@ -152,7 +152,7 @@ if has("win32")
     call vundle#begin('$VIM/vimfiles/bundle')
 else
     set rtp+=~/.vim/bundle/Vundle.vim/
-    call vundle#begin('~/.vim/bundle/Vundle.vim/')
+    call vundle#begin('~/.vim/bundle/')
 endif
 
 Plugin 'gmarik/Vundle.vim'
