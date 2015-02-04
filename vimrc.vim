@@ -4,7 +4,7 @@
 " bug: windows无法使用Gdiff功能
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.2.150117
+" Version:      0.2.3.150204
 " Licence:      MIT
 " =============================================================================
 
@@ -44,7 +44,7 @@ winpos 240 0
 " 自动隐藏鼠标
 set mousehide
 " 右键点击时，弹出菜单
-set mousemodel=popup 
+set mousemodel=popup
 " 不显示菜单栏
 set guioptions-=m
 " 不显示工具栏
@@ -79,7 +79,7 @@ set ruler
 set showmode
 " 显示当前输入的命令
 set showcmd
-" 弹出框样式
+" 弹出框样式，比如自动补全的下拉框。
 highlight Pmenu    guibg=darkgrey  guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
 " 设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
@@ -97,7 +97,6 @@ setlocal foldlevel=1
 " 默认不折叠
 set foldlevelstart=99
 " 按空格折叠代码
-"nmap <space> za
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 
@@ -113,7 +112,8 @@ set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-"显示一些不显示的空白字符
+" 显示一些不显示的空白字符
+" 通过 set list和 set nolist控制是否显示或是用set list!切换显示
 set listchars=tab:>-,eol:$,trail:-
 
 
@@ -132,10 +132,9 @@ if has("gui_running")
     elseif has("gui_macvim")
         "set set guifont=Droid_Sans_Mono:h1
     elseif has("gui_win32")
-        " 需要需要airline的特殊字符
+        " 需要airline的特殊字符
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
         set guifontwide=Microsoft\ YaHei\ UI:h12
-        "set guifont=YaHei\ Consolas\ Hybrid:h11
     else
         set guifont=YaHei\ Consolas\ Hybrid:h10
     endif
@@ -234,6 +233,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
+
+" windows安装麻烦，而且如果有msvcr90.dll的话，还有冲突
+if !has("gui_win32")
+    " YCM
+    Plugin 'Valloric/YouCompleteMe'
+endif
 
 " 多光标支持。
 Plugin 'terryma/vim-multiple-cursors'
