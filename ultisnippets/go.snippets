@@ -126,6 +126,8 @@ endsnippet
 
 snippet fut "testing function" b
 func Test${1:1}(t *testing.T) {
+	a := assert.New(t)
+
 	${0:${VISUAL}}
 }
 endsnippet
