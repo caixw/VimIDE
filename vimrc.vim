@@ -152,7 +152,7 @@ if has("win32")
     call vundle#begin('$VIM/vimfiles/bundle')
 else
     set rtp+=~/.vim/bundle/Vundle.vim/
-    call vundle#begin('~/.vim/bundle/Vundle.vim/')
+    call vundle#begin('~/.vim/bundle/')
 endif
 
 Plugin 'gmarik/Vundle.vim'
@@ -225,6 +225,7 @@ Plugin 'scrooloose/syntastic'
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
 
+
 " 代码片段，需要python3支持
  Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -238,6 +239,8 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 if !has("gui_win32")
     " YCM
     Plugin 'Valloric/YouCompleteMe'
+    " 设置成c-n，避免与ultisnips相关快捷键冲突。
+    let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 endif
 
 " 多光标支持。
