@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.13.150317
+" Version:      0.2.14.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -345,6 +345,6 @@ syn on
 " 映射代码实例的快捷键
 imap <C-u> <C-x><C-o>
 
-" 去除linux下菜单乱码，放最后。
-"source $VIMRUNTIME/delmenu.vim
-"source $VIMRUNTIME/menu.vim
+" 去除linux下菜单(包含右键菜单)乱码，放最后。
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
