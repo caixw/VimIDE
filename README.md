@@ -2,7 +2,7 @@ VimIDE
 ======
 
 自用的一个vim配置文件，针对gvim，不保证vim下能全部正常使用。适用于Go与PHP。
-[screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
+![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
 
 
 
