@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.8.150317
+" Version:      0.2.9.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -155,15 +155,15 @@ endif
 Plugin 'gmarik/Vundle.vim'
 
 " 所有插件在Filetype之间添加。可以是以下三种形式：
-" vim.org上的脚本名             Plugin php
-" Plugin git上的作者/项目名称   Plugin gmark/vundle
-" Plugin 一个完整的Git路径      Plugin git://git.wincent.com/commit.git
+" vim.org上的脚本名                 Plugin php
+" Plugin github上的作者/项目名称    Plugin gmark/vundle
+" Plugin 一个完整的Git路径          Plugin git://git.wincent.com/commit.git
 " Vundle常用指令
-" :PluginList                   列出已经安装的插件
-" :PluginInstall                安装所有配置文件中的插件
-" :PluginInstall!               更新所有插件
-" :PluginSearch                 搜索插件
-" :PluginClean!                 根据配置文件删除插件
+" :PluginList                       列出已经安装的插件
+" :PluginInstall                    安装所有配置文件中的插件
+" :PluginInstall!                   更新所有插件
+" :PluginSearch                     搜索插件
+" :PluginClean!                     根据配置文件删除插件
 
 " CSS颜色值背景显示定义的颜色
 Plugin 'skammer/vim-css-color'
@@ -303,7 +303,6 @@ let g:airline#extensions#tabline#fnamemod = ':p:t' " 只显示文件名，不显
 
 " 一些好用的主题
 Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
 
 " 启动页面
 Plugin 'mhinz/vim-startify'
@@ -337,7 +336,7 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-colors solarized
+colors molokai
 set background=dark
 
 " 自动开启语法高亮
