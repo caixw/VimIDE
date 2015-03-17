@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.14.150317
+" Version:      0.2.15.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -261,7 +261,7 @@ Plugin 'bling/vim-airline'
 " 使用powerline的箭头，需要安装powerline字体，在未安装powerline字体的情况下，
 " 可以将此值设置为0，这将使用之后的这些默认的符号替换。
 let g:airline_powerline_fonts = 0
-if g:airline_powerline_fonts != 1
+if g:airline_powerline_fonts == 0
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
@@ -296,11 +296,14 @@ set laststatus=2
 " 可以使用 techlivezheng/vim-plugin-minibufexpl 插件！
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#left_sep = '▶'
-let g:airline#extensions#tabline#left_alt_sep = '❯'
-let g:airline#extensions#tabline#right_sep = '◀'
-let g:airline#extensions#tabline#right_alt_sep = '❮'
 let g:airline#extensions#tabline#fnamemod = ':p:t' " 只显示文件名，不显示路径内容。
+
+if g:airline_powerline_fonts == 0
+    let g:airline#extensions#tabline#left_sep = '▶'
+    let g:airline#extensions#tabline#left_alt_sep = '❯'
+    let g:airline#extensions#tabline#right_sep = '◀'
+    let g:airline#extensions#tabline#right_alt_sep = '❮'
+endif
 
 " 一些好用的主题
 Plugin 'tomasr/molokai'
