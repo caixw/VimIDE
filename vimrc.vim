@@ -4,7 +4,7 @@
 " bug: windows无法使用Gdiff功能
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.4.150317
+" Version:      0.2.5.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -296,6 +296,11 @@ set laststatus=2
 " 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
 let g:airline#extensions#tabline#enabled = 1
 let airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#left_sep = '▶'
+let g:airline#extensions#tabline#left_alt_sep = '❯'
+let g:airline#extensions#tabline#right_sep = '◀'
+let g:airline#extensions#tabline#right_alt_sep = '❮'
+let g:airline#extensions#tabline#fnamemod = ':p:t' " 只显示文件名，不显示路径内容。
 
 
 " 一些好用的主题
