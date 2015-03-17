@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.11.150317
+" Version:      0.2.12.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -218,11 +218,11 @@ let g:go_highlight_build_constraints = 1
 " 代码错误检测 若PHP，需要PHP.exe在PATH环境变量中，其它应该也类似
 Plugin 'scrooloose/syntastic'
 " 语法错误
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_error_symbol = ">>"
+let g:syntastic_warning_symbol = ">"
 " 语法风格错误
-let g:syntastic_style_error_symbol=">>"
-let g:syntastic_style_warning_symbol=">"
+let g:syntastic_style_error_symbol="✗"
+let g:syntastic_style_warning_symbol="⚠"
 
 
 " 代码片段，需要python3支持
