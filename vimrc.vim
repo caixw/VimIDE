@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.10.150317
+" Version:      0.2.11.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -246,6 +246,9 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " 缩进高亮，显示一条竖线
 Plugin 'Yggdroot/indentLine'
+
+" 快速注释
+Plugin 'scrooloose/nerdcommenter'
 
 " 显示git的更改内容
 Plugin 'airblade/vim-gitgutter'
