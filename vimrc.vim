@@ -1,10 +1,8 @@
 "==============================================================================
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
-" bug: windows无法使用Gdiff功能
-"
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.5.150317
+" Version:      0.2.6.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -254,10 +252,6 @@ Plugin 'airblade/vim-gitgutter'
 " 对git的包装
 Plugin 'tpope/vim-fugitive'
 
-" buffer列表插件，可以显示多行。
-" airline-tabline提供一个差不多功能的插件，
-" Plugin 'techlivezheng/vim-plugin-minibufexpl'
-
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
 " 使用powerline的箭头，需要安装powerline字体，在未安装powerline字体的情况下，
@@ -293,15 +287,16 @@ let g:airline_mode_map = {
       \ }
 
 set laststatus=2
-" 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
+
+" airline-tabline扩展设计，若需要更专业的buffer列表显示插件，
+" 可以使用 techlivezheng/vim-plugin-minibufexpl 插件！
 let g:airline#extensions#tabline#enabled = 1
-let airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#left_sep = '▶'
 let g:airline#extensions#tabline#left_alt_sep = '❯'
 let g:airline#extensions#tabline#right_sep = '◀'
 let g:airline#extensions#tabline#right_alt_sep = '❮'
 let g:airline#extensions#tabline#fnamemod = ':p:t' " 只显示文件名，不显示路径内容。
-
 
 " 一些好用的主题
 Plugin 'tomasr/molokai'
