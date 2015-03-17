@@ -9,6 +9,7 @@ VimIDE
 
 #### vim-go
 vim-go中依赖的软件可以运行:GoInstallBinaries命令检测，缺失的都会提示。
+确保go环境以及git和hg已经安装，go get依赖这仨！
 
 #### python
 UltiSnips依赖Python2或是Python3，若vim编译时是以python/dyn形式编译的，
