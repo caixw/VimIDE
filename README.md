@@ -2,10 +2,11 @@ VimIDE
 ======
 
 自用的一个vim配置文件，针对gvim，不保证vim下能全部正常使用。适用于Go与PHP。
+[![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)]
 
 
 
-###依赖的软件
+### 依赖的软件
 
 #### vim-go
 vim-go中依赖的软件可以运行:GoInstallBinaries命令检测，缺失的都会提示。
