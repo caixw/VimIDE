@@ -13,9 +13,9 @@ gvim只能确保7.4版本可以正常使用所有功能，其它版本未测试�
 
 
 #### git、mercurial
-- Vundle依赖git从服务器上下载插件；
-- vim-fugitive也依赖git才起作用；
-- vim-go中依赖的软件可以运行:GoInstallBinaries命令检测和安装需要用到的软件。
+- Vundle：依赖git从服务器上下载插件；
+- vim-fugitive：也依赖git才起作用；
+- vim-go：中依赖的软件可以运行`:GoInstallBinaries`命令检测和安装需要用到的软件。
 该命令会用到git或是mercurial软件；
 
 
@@ -30,7 +30,7 @@ majutsushi/tagbar插件依赖ctags来解析。可以从以下地址下载：
 
 
 #### YCM
-YCM插件需要编译之后才可以用，所以可能还需要安装一系统的编译工具：`gcc`、`cmake`等。
+YCM插件需要编译之后才可以用，所以可能还需要安装一系统的编译工具：gcc、cmake等。
 具体安装步骤可参考：[YCM安装](https://github.com/Valloric/YouCompleteMe#installation)。
 windows比较麻烦，下如果折腾不出来就算了。
 
@@ -55,7 +55,7 @@ windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体
 let g:airline_powerline_fonts = 1
 ```
 
-###安装
+### 安装
 
 
 #### windows
@@ -64,7 +64,7 @@ let g:airline_powerline_fonts = 1
 cd x:\xxx\Vim
 
 # 将配置文件链接到vimrc.vim，若已经存在_vimrc可以先删除
-mklink _vimrc x:\xxx\VimIDE\vimrc.vim 
+mklink _vimrc x:\xxx\VimIDE\vimrc.vim
 
 # 若不存在bundle，则手动创建。
 cd vimfiles/bundle/
@@ -78,11 +78,10 @@ git clone https://github.com/gmarik/Vundle.vim
 :PluginInstall
 ```
 
-windows7之前的版本没有mklink命令，要以直接复制需要的文件到指定目录。
+windows7之前的版本没有`mklink`命令，要以直接复制需要的文件到指定目录。
 
 
 #### linux
-将vimrc.vim复制到~/下，重命名为.vimrc。或是使用ln命令做一个符号链接到vimrc.vim文件。
 ```shell
 unlink  ~/.vimrc
 ln -s ~/project/VimIDE/vimrc.vim  ~/.vimrc
