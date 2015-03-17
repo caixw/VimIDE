@@ -4,7 +4,7 @@
 " bug: windows无法使用Gdiff功能
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.3.150204
+" Version:      0.2.4.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -132,7 +132,6 @@ if has("gui_running")
     elseif has("gui_macvim")
         "set set guifont=Droid_Sans_Mono:h1
     elseif has("gui_win32")
-        " 需要airline的特殊字符
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
         set guifontwide=Microsoft\ YaHei\ UI:h12
     else
@@ -257,12 +256,12 @@ Plugin 'tpope/vim-fugitive'
 
 " buffer列表插件，可以显示多行。
 " airline-tabline提供一个差不多功能的插件，
- Plugin 'techlivezheng/vim-plugin-minibufexpl'
+" Plugin 'techlivezheng/vim-plugin-minibufexpl'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
 " 使用powerline的箭头，需要安装powerline字体，在未安装powerline字体的情况下，
-" 可以将此值设置为0，这将使用一些默认的符号替换。
+" 可以将此值设置为0，这将使用之后的这些默认的符号替换。
 let g:airline_powerline_fonts = 0
 if g:airline_powerline_fonts != 1
     if !exists('g:airline_symbols')
@@ -295,8 +294,8 @@ let g:airline_mode_map = {
 
 set laststatus=2
 " 显示buffer列表，但只有一行，如果每次打开的文件比较多，可以用上面的minibufexpl代替
-" let g:airline#extensions#tabline#enabled = 1
-" let airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
+let airline#extensions#tabline#buffer_nr_show = 1
 
 
 " 一些好用的主题
