@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.7.150317
+" Version:      0.2.8.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -236,9 +236,8 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
-" windows安装麻烦，而且如果有msvcr90.dll的话，还有冲突
+" YCM插件。 windows安装麻烦，而且如果有msvcr90.dll的话，还有冲突
 if !has("gui_win32")
-    " YCM
     Plugin 'Valloric/YouCompleteMe'
     " 设置成c-n，避免与ultisnips相关快捷键冲突。
     let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
@@ -253,7 +252,7 @@ Plugin 'Yggdroot/indentLine'
 " 显示git的更改内容
 Plugin 'airblade/vim-gitgutter'
 
-" 对git的包装
+" 对git命令的包装
 Plugin 'tpope/vim-fugitive'
 
 " airline 状态栏美化。
@@ -338,7 +337,7 @@ filetype plugin on
 "======================== end Bundle
 "==============================================================================
 
-colors molokai
+colors solarized
 set background=dark
 
 " 自动开启语法高亮
