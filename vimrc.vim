@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.9.150317
+" Version:      0.2.10.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -169,8 +169,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'skammer/vim-css-color'
 " html5高亮
 Plugin 'othree/html5.vim'
-" markdown文档高亮
-Plugin 'plasticboy/vim-markdown'
 " JS高亮及HTML/JS混排缩进改善
 Plugin 'pangloss/vim-javascript'
 " jquery高亮
