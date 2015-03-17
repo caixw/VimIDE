@@ -2,7 +2,7 @@
 " gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.15.150317
+" Version:      0.2.16.150317
 " Licence:      MIT
 " =============================================================================
 
@@ -37,8 +37,6 @@ set autochdir
 let $LANG='zh_CN.UTF-8'
 " 菜单语言，必须要在 set encoding之后,界面加载之前
 set langmenu=zh_CN.utf-8
-" 窗口位置
-winpos 240 0
 " 自动隐藏鼠标
 set mousehide
 " 右键点击时，弹出菜单
@@ -51,6 +49,8 @@ set guioptions-=T
 set guioptions+=r
 " b代表bottom，就是不在下面加入滚动条
 set guioptions-=b
+" 窗口位置
+winpos 240 0
 " 高度
 set lines=60
 " 宽度
@@ -330,7 +330,7 @@ let g:startify_custom_footer = [
 " 中文文档。
 Bundle 'asins/vimcdoc'
 " 帮助语言为中文
-set helplang=cn,en
+set helplang=cn
 
 call vundle#end()
 
