@@ -93,3 +93,7 @@ ln -s ~/project/VimIDE/ultisnippets  ./ultisnippets
 git clone https://github.com/gmarik/Vundle.vim
 vim +PluginIntall
 ```
+
+### 插件
+插件功能具体参考vimrc.vim中的说明，部分插件示意图：
+![screenshot-plugins](https://raw.github.com/caixw/VimIDE/master/images/screenshot_plugins.png)
