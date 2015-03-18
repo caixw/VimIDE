@@ -1,8 +1,8 @@
 "==============================================================================
-" gvim的配置文件，部分内容只能在gvim下使用，不保证在vim模式下能全部启作用！
+" gvim的配置文件，以gvim7.4为基准，不保证其它版本或是vim下能正常使用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.16.150317
+" Version:      0.2.17.150318
 " Licence:      MIT
 " =============================================================================
 
@@ -121,8 +121,6 @@ if has("gui_running")
         set guifont=Droid\ Sans\ Mono\ 12
         " 比英文字体大一点，这样汉字的间距就不会太大了
         set guifontwide=Droid\ Sans\ 13
-    elseif has("gui_photon")
-        "set guifont=Courier\ New:s11
     elseif has("gui_kde")
         "set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
     elseif has("x11")
@@ -167,10 +165,13 @@ Plugin 'gmarik/Vundle.vim'
 
 " CSS颜色值背景显示定义的颜色
 Plugin 'skammer/vim-css-color'
+
 " html5高亮
 Plugin 'othree/html5.vim'
+
 " JS高亮及HTML/JS混排缩进改善
 Plugin 'pangloss/vim-javascript'
+
 " jquery高亮
 Plugin 'vim-scripts/jQuery'
 au BufRead,BufNewFile *.js set ft=jquery
