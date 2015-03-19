@@ -31,7 +31,7 @@ majutsushi/tagbar插件依赖ctags来解析。可以从以下地址下载：
 #### YCM
 YCM插件需要编译之后才可以用，所以可能还需要安装一系统的编译工具：gcc、cmake等。
 具体安装步骤可参考：[YCM安装](https://github.com/Valloric/YouCompleteMe#installation)。
-windows比较麻烦，下如果折腾不出来就算了。
+windows比较麻烦，如果折腾不出来就算了。
 
 #### vim-go
 vim-go插件依赖一大堆go程序，可以通过运行`:GoInstallBinaries`来自行安装，
