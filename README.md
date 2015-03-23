@@ -1,9 +1,10 @@
 VimIDE
 ======
 
-自用的一个vim配置文件，针对gvim，不保证vim下能全部正常使用。适用于`Go`与`PHP`。
+自用的一个vim配置文件，适用于`Go`与`PHP`。针对gvim7.4，不保证其它版本或是vim下能全部正常使用。
 
 ![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
+
 
 
 ### 快捷键
@@ -20,8 +21,6 @@ VimIDE
 
 
 ### 依赖的软件
-
-gvim只能确保7.4版本可以正常使用所有功能，其它版本未测试！
 
 
 #### git、mercurial
@@ -70,6 +69,8 @@ windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体
 let g:airline_powerline_fonts = 1
 ```
 
+
+
 ### 安装
 
 
@@ -106,9 +107,12 @@ git clone https://github.com/gmarik/Vundle.vim
 vim +PluginIntall
 ```
 
+
+
 ### 插件
 插件具体功能可直接参考vimrc.vim中的说明，部分插件示意图：
 ![screenshot-plugins](https://raw.github.com/caixw/VimIDE/master/images/screenshot_plugins.png)
+
 
 
 ### 版权
