@@ -2,7 +2,7 @@
 " gvim的配置文件，以gvim7.4为基准，不保证其它版本或是vim下能正常使用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.18.150323
+" Version:      0.2.19.150323
 " Licence:      MIT
 " =============================================================================
 
@@ -315,6 +315,7 @@ let g:startify_custom_header = [
                 \ '      \  /  | | | | | | |  | | | |____| | | |_______ ',
                 \ '       \/   |_|_| |_| |_|  |_| |_|_____/  |_|_______|',
                 \ '',
+                \ '                      https://github.com/caixw/VimIDE',
                 \ '',
                 \ ]
 let g:startify_custom_footer = [
