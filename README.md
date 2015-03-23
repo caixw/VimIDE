@@ -78,7 +78,7 @@ git clone https://github.com/gmarik/Vundle.vim
 ```
 在gvim中执行`:PluginInstall`命令安装其它插件。
 
-windows7之前的版本没有`mklink`命令，要以直接复制需要的文件到指定目录。
+windows7之前的版本没有`mklink`命令，可以直接复制需要的文件到指定目录。
 
 
 #### linux
@@ -95,5 +95,5 @@ vim +PluginIntall
 ```
 
 ### 插件
-插件功能具体参考vimrc.vim中的说明，部分插件示意图：
+插件具体功能可直接参考vimrc.vim中的说明，部分插件示意图：
 ![screenshot-plugins](https://raw.github.com/caixw/VimIDE/master/images/screenshot_plugins.png)
