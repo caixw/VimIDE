@@ -10,10 +10,10 @@ VimIDE
 
 自定义的快捷键:
 
-- <F1> 打开类/函数视图(tagbar);
-- <F2> 打开文件浏览窗口(NERDTree);
-- <C-u> 显示自动提示内容，默认为键为<C-x><C-o>;
-- <C-i> 产生PHP文档;
+- F1 打开类/函数视图(tagbar);
+- F2 打开文件浏览窗口(NERDTree);
+- C-u 显示自动提示内容，默认为键为C-x C-o;
+- C-i 产生PHP文档;
 
 
 
@@ -109,6 +109,6 @@ vim +PluginIntall
 ![screenshot-plugins](https://raw.github.com/caixw/VimIDE/master/images/screenshot_plugins.png)
 
 
-### 版本
+### 版权
 
 本项目采用[MIT](http://opensource.org/licenses/MIT)开源授权许可证，完整的授权说明可在[LICENSE](LICENSE)文件中找到。
