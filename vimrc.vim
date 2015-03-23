@@ -2,7 +2,7 @@
 " gvim的配置文件，以gvim7.4为基准，不保证其它版本或是vim下能正常使用！
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.17.150318
+" Version:      0.2.18.150323
 " Licence:      MIT
 " =============================================================================
 
@@ -171,10 +171,6 @@ Plugin 'othree/html5.vim'
 
 " JS高亮及HTML/JS混排缩进改善
 Plugin 'pangloss/vim-javascript'
-
-" jquery高亮
-Plugin 'vim-scripts/jQuery'
-au BufRead,BufNewFile *.js set ft=jquery
 
 " php文档产生工具
 Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
