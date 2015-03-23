@@ -6,6 +6,16 @@ VimIDE
 ![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
 
 
+### 快捷键
+
+自定义的快捷键:
+
+- <F1> 打开类/函数视图(tagbar);
+- <F2> 打开文件浏览窗口(NERDTree);
+- <C-u> 显示自动提示内容，默认为键为<C-x><C-o>;
+- <C-i> 产生PHP文档;
+
+
 
 ### 依赖的软件
 
