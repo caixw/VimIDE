@@ -63,7 +63,7 @@ wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols
 fc-cache -vf ~/.fonts
 ```
 
-windows下，则直接将https://github.com/Lokaltog/powerline-fonts下的字体依次安装下即可。
+windows下，则直接将[powerline-fonts](https://github.com/Lokaltog/powerline-fonts)下的字体依次安装下即可。
 
 安装完之后，在配置文件(vimrc.vim)中的到以下变量，将其值设置为1，才能起作用：
 ```vim
