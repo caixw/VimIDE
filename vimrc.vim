@@ -1,8 +1,8 @@
 "==============================================================================
-" gvim的配置文件，以gvim7.4为基准，不保证其它版本或是vim下能正常使用！
+" 自用的vim配置文件。适用gvim7.4和最新版的MacVim
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.2.19.150323
+" Version:      0.3.20.150330
 " Licence:      MIT
 " =============================================================================
 
@@ -126,12 +126,14 @@ if has("gui_running")
     elseif has("x11")
         "set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     elseif has("gui_macvim")
-        "set set guifont=Droid_Sans_Mono:h1
+        set guifont=Monaco:h13
+    elseif has("gui_kde")
+        " todo
     elseif has("gui_win32")
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
         set guifontwide=Microsoft\ YaHei\ UI:h12
     else
-        set guifont=YaHei\ Consolas\ Hybrid:h10
+        "set guifont=YaHei\ Consolas\ Hybrid:h10
     endif
 endif
 
