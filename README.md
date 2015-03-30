@@ -2,7 +2,7 @@ VimIDE
 ======
 
 自用的一个vim配置文件，适用于`Go`与`PHP`语言环境。
-只针对gvim7.4，不保证其它版本或是vim下能全部正常使用。
+只针对gvim7.4和最新版的MacVim，不保证其它版本或是vim下能全部正常使用。
 
 ![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
 
@@ -65,6 +65,8 @@ fc-cache -vf ~/.fonts
 
 windows下，则直接将[powerline-fonts](https://github.com/Lokaltog/powerline-fonts)下的字体依次安装下即可。
 
+mac osx安装完字体之后，不能正常显示，原因未知。
+
 安装完之后，在配置文件(vimrc.vim)中的到以下变量，将其值设置为1，才能起作用：
 ```vim
 let g:airline_powerline_fonts = 1
@@ -95,7 +97,7 @@ git clone https://github.com/gmarik/Vundle.vim
 windows7之前的版本没有`mklink`命令，可以直接复制需要的文件到指定目录。
 
 
-#### linux
+#### linux / mac os x
 ```shell
 unlink  ~/.vimrc
 ln -s ~/project/VimIDE/vimrc.vim  ~/.vimrc
@@ -119,3 +121,9 @@ vim +PluginIntall
 ### 版权
 
 本项目采用[MIT](http://opensource.org/licenses/MIT)开源授权许可证，完整的授权说明可在[LICENSE](LICENSE)文件中找到。
+
+
+
+### BUG
+
+目前mac osx下无法正常使用powerline-fonts!
