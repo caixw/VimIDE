@@ -99,18 +99,43 @@ git clone https://github.com/gmarik/Vundle.vim
 windows7之前的版本没有`mklink`命令，可以直接复制需要的文件到指定目录。
 
 
-#### linux / mac os x
+#### linux
 ```shell
 unlink  ~/.vimrc
 ln -s ~/project/VimIDE/vimrc.vim  ~/.vimrc
 
+# 安装Vundle
 mkdir ~/.vim/bundle/
 cd ~/.vim/bundle/
+git clone https://github.com/gmarik/Vundle.vim
+
+# 链接ultisnippets到rtp
 ln -s ~/project/VimIDE/ultisnippets  ./ultisnippets
 
-git clone https://github.com/gmarik/Vundle.vim
+# 安装所有的插件
 vim +PluginIntall
 ```
+
+#### mac os x
+```shell
+unlink  ~/.vimrc
+ln -s ~/project/VimIDE/vimrc.vim  ~/.vimrc
+
+# 安装Vundle
+mkdir ~/.vim/bundle/
+cd ~/.vim/bundle/
+git clone https://github.com/gmarik/Vundle.vim
+
+# 链接ultisnippets到rtp
+cd ~/.vim/
+ln -s ~/project/VimIDE/ultisnippets  ./ultisnippets
+
+# 安装所有的插件
+vim +PluginIntall
+
+```
+
+
 
 
 
