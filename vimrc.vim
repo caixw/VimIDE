@@ -2,7 +2,7 @@
 " 自用的vim配置文件。适用gvim7.4和最新版的MacVim
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.20.150330
+" Version:      0.3.20.150331
 " Licence:      MIT
 " =============================================================================
 
@@ -224,7 +224,7 @@ let g:syntastic_style_error_symbol="✗"
 let g:syntastic_style_warning_symbol="⚠"
 
 
-" 代码片段，需要python3支持
+" 代码片段，需要python支持
  Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"

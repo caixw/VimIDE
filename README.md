@@ -23,6 +23,8 @@ VimIDE
 
 ### 依赖的软件
 
+ mac os x下可通过brew安装大部分需要的软件。
+
 
 #### git、mercurial
 - Vundle：依赖git从服务器上下载插件；
