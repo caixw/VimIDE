@@ -129,3 +129,4 @@ vim +PluginIntall
 ### BUG
 
 目前mac osx下无法正常使用powerline-fonts!
+macvim与mac os x10.10版本在全屏下有冲突，顶部有黑边，目前只能通过打开一个分屏窗口来解决。
