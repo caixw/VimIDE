@@ -2,7 +2,11 @@ VimIDE
 ======
 
 自用的一个vim配置文件，适用于`Go`与`PHP`语言环境。
-只针对gvim7.4和最新版的MacVim，不保证其它版本或是vim下能全部正常使用。
+
+适用版本：
+windows/linux下只通过gvim7.4的测试。
+mac os x下vim7.4在终端下可以正常使用菜单以外的所有功能。
+macvim所有功能都没没有问题。但是macvim在mac os x下的表现不是很好。
 
 ![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
 
