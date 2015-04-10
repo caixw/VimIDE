@@ -27,7 +27,6 @@ macvim所有功能都没没有问题。但是macvim在mac os x下的表现不是
 
 ### 依赖的软件
 
- mac os x下可通过brew安装大部分需要的软件。
 
 
 #### git、mercurial
