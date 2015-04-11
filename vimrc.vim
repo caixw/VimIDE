@@ -4,7 +4,7 @@
 " mac osx下的macvim和vim7.4
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.20.150402
+" Version:      0.3.20.150411
 " Licence:      MIT
 " =============================================================================
 
@@ -154,8 +154,7 @@ else
     call vundle#begin('~/.vim/bundle/')
 endif
 
-Plugin 'gmarik/Vundle.vim'
-
+" 插件管理插件。
 " 所有插件在Filetype之间添加。可以是以下三种形式：
 " vim.org上的脚本名                 Plugin php
 " Plugin github上的作者/项目名称    Plugin gmark/vundle
@@ -166,6 +165,7 @@ Plugin 'gmarik/Vundle.vim'
 " :PluginInstall!                   更新所有插件
 " :PluginSearch                     搜索插件
 " :PluginClean!                     根据配置文件删除插件
+Plugin 'gmarik/Vundle.vim'
 
 " CSS颜色值背景显示定义的颜色
 Plugin 'skammer/vim-css-color'
@@ -207,7 +207,6 @@ endfunction
 
 " 侧边栏显示相关函数定义等，依赖http://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
-
 let g:tagbar_width = 30
 nmap <F1> :TagbarToggle<CR>
 let g:tagbar_left =1
@@ -232,8 +231,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
-" If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
 
 " YCM插件。 windows安装麻烦，而且如果有msvcr90.dll的话，还有冲突
 if !has("gui_win32")
