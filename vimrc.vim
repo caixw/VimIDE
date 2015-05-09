@@ -4,7 +4,7 @@
 " mac osx下的macvim和vim7.4
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.20.150411
+" Version:      0.3.21.150509
 " Licence:      MIT
 " =============================================================================
 
@@ -128,7 +128,8 @@ if has("gui_running")
     elseif has("x11")
         "set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     elseif has("gui_macvim")
-        set guifont=Monaco:h13
+        set guifont=monofur\ for\ Powerline:h15
+        set guifontwide=STHeiti:h15
     elseif has("gui_kde")
         " todo
     elseif has("gui_win32")
@@ -258,7 +259,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 " 使用powerline的箭头，需要安装powerline字体，在未安装powerline字体的情况下，
 " 可以将此值设置为0，这将使用之后的这些默认的符号替换。
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 if g:airline_powerline_fonts == 0
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}

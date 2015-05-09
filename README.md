@@ -58,19 +58,15 @@ vim-go插件依赖一大堆go程序，可以通过运行`:GoInstallBinaries`来�
 #### powerline-fonts
 airline需要使用到这些字体，用于美化状态栏。
 
-linux下安装方式如下：
+linux/osx：
 ```shell
-cd ~/.fonts
-git clone https://github.com/Lokaltog/powerline-fonts
-wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-# Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
-fc-cache -vf ~/.fonts
+cd ~
+git clone github.com:powerline/fonts
+cd fonts
+./install.sh
 ```
 
 windows下，则直接将[powerline-fonts](https://github.com/Lokaltog/powerline-fonts)下的字体依次安装下即可。
-
-mac osx安装完字体之后，不能正常显示，原因未知。
 
 安装完之后，在配置文件(vimrc.vim)中的到以下变量，将其值设置为1，才能起作用：
 ```vim
@@ -156,6 +152,5 @@ vim +PluginIntall
 
 ### BUG
 
-- 目前mac osx下无法正常使用powerline-fonts；
 - 终端模式下打开md文档非常地缓慢；
 - macvim与mac os x10.10版本在全屏下有冲突，顶部有黑边，目前只能通过打开一个分屏窗口来解决。
