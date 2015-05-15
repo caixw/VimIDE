@@ -4,7 +4,7 @@
 " mac osx下的macvim和vim7.4
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.21.150509
+" Version:      0.3.22.150515
 " Licence:      MIT
 " =============================================================================
 
@@ -238,6 +238,10 @@ if !has("gui_win32")
     Plugin 'Valloric/YouCompleteMe'
     " 设置成c-n，避免与ultisnips相关快捷键冲突。
     let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+    let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'gitcommit': 1,
+      \ 'php': 1
+      \}
 endif
 
 " 多光标支持。
