@@ -115,7 +115,7 @@ ln -s ~/project/VimIDE/ultisnippets  ./ultisnippets
 vim +PluginIntall
 ```
 
-#### mac os x
+#### os x
 ```shell
 unlink  ~/.vimrc
 ln -s ~/project/VimIDE/vimrc.vim  ~/.vimrc
@@ -153,4 +153,3 @@ vim +PluginIntall
 ### BUG
 
 - 终端模式下打开md文档非常地缓慢；
-- macvim与mac os x10.10版本在全屏下有冲突，顶部有黑边，目前只能通过打开一个分屏窗口来解决。

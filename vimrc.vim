@@ -4,7 +4,7 @@
 " mac osx下的macvim和vim7.4
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.22.150515
+" Version:      0.3.23.151030
 " Licence:      MIT
 " =============================================================================
 
@@ -169,7 +169,7 @@ endif
 Plugin 'gmarik/Vundle.vim'
 
 " CSS颜色值背景显示定义的颜色
-Plugin 'skammer/vim-css-color'
+Plugin 'ap/vim-css-color'
 
 " html5高亮
 Plugin 'othree/html5.vim'
