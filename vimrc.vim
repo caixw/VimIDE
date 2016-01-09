@@ -4,7 +4,7 @@
 " mac osx下的macvim和vim7.4
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.23.151030
+" Version:      0.3.24.160109
 " Licence:      MIT
 " =============================================================================
 
@@ -215,6 +215,7 @@ let g:tagbar_left =1
 " golang相关插件
 Plugin 'fatih/vim-go'
 let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 " 代码错误检测 若PHP，需要PHP.exe在PATH环境变量中，其它应该也类似
 Plugin 'scrooloose/syntastic'

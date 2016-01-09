@@ -5,8 +5,7 @@ VimIDE
 
 适用版本：
 windows/linux下只通过gvim7.4的测试。
-mac os x下vim7.4在终端下可以正常使用菜单以外的所有功能。
-macvim所有功能都没没有问题。但是macvim在mac os x下的表现不是很好。
+mac osx下vim7.4或是对应版本的macvim。
 
 ![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
 
@@ -26,7 +25,6 @@ macvim所有功能都没没有问题。但是macvim在mac os x下的表现不是
 
 
 ### 依赖的软件
-
 
 
 #### git、mercurial
@@ -136,9 +134,8 @@ vim +PluginIntall
 
 
 
-
-
 ### 插件
+
 插件具体功能可直接参考vimrc.vim中的说明，部分插件示意图：
 ![screenshot-plugins](https://raw.github.com/caixw/VimIDE/master/images/screenshot_plugins.png)
 
@@ -147,9 +144,3 @@ vim +PluginIntall
 ### 版权
 
 本项目采用[MIT](http://opensource.org/licenses/MIT)开源授权许可证，完整的授权说明可在[LICENSE](LICENSE)文件中找到。
-
-
-
-### BUG
-
-- 终端模式下打开md文档非常地缓慢；
