@@ -4,7 +4,7 @@
 " mac osx下的macvim和vim7.4
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.24.160109
+" Version:      0.3.25.160518
 " Licence:      MIT
 " =============================================================================
 
@@ -214,6 +214,10 @@ let g:tagbar_left =1
 
 " golang相关插件
 Plugin 'fatih/vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_sructs = 1
+let g:go_highlight_interfaces = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
@@ -225,6 +229,10 @@ let g:syntastic_warning_symbol = ">"
 " 语法风格错误
 let g:syntastic_style_error_symbol="✗"
 let g:syntastic_style_warning_symbol="⚠"
+
+" 开启各类语言的语法检测
+let g:syntastic_go_checkers = 1
+let g:syntastic_php_checkers = 1
 
 
 " 代码片段，需要python支持
