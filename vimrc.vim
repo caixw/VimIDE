@@ -4,7 +4,7 @@
 " mac osx下的macvim和vim7.4
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.25.160518
+" Version:      0.3.26.20160818
 " Licence:      MIT
 " =============================================================================
 
@@ -167,6 +167,9 @@ endif
 " :PluginSearch                     搜索插件
 " :PluginClean!                     根据配置文件删除插件
 Plugin 'gmarik/Vundle.vim'
+
+" vuejs 组件语法高亮
+Plugin 'posva/vim-vue'
 
 " CSS颜色值背景显示定义的颜色
 Plugin 'ap/vim-css-color'
