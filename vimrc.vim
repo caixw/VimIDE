@@ -1,14 +1,14 @@
 "==============================================================================
-" 自用的vim配置文件。适用以下版本:
-" widows/linux下的gvim7.4;
-" mac osx下的macvim和vim7.4
+" 自用的 vim 配置文件。适用以下版本:
+" widows/linux 下的 Gvim8;
+" macOS 下的 macvim 和vim8
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.26.20160818
+" Version:      0.3.27.20161031
 " Licence:      MIT
 " =============================================================================
 
-" 设置不兼容VI模式，在增强模式下运行
+" 设置不兼容 VI 模式，在增强模式下运行
 set nocompatible
 
 
@@ -19,7 +19,7 @@ set nobackup
 "set noswapfile
 " 保存文件格式
 set fileformats=unix,dos
-" 读文件时，使用的编码。前2个顺序不能错
+" 读文件时，使用的编码。前 2 个顺序不能错
 set fileencodings=ucs-bom,utf-8,cp936,gb2312,gb18030,gbk
 " 保存时，使用的编码
 set fileencoding=utf-8
@@ -37,7 +37,7 @@ set autochdir
 
 
 let $LANG='zh_CN.UTF-8'
-" 菜单语言，必须要在 set encoding之后,界面加载之前
+" 菜单语言，必须要在 set encoding 之后,界面加载之前
 set langmenu=zh_CN.utf-8
 " 自动隐藏鼠标
 set mousehide
@@ -57,7 +57,7 @@ winpos 240 0
 set lines=60
 " 宽度
 set columns=120
-" 设定光标离窗口上下边界3行时窗口自动滚动
+" 设定光标离窗口上下边界 3 行时窗口自动滚动
 set scrolloff=3
 " 高亮显示当前行
 set cursorline
@@ -82,7 +82,7 @@ set showcmd
 " 弹出框样式，比如自动补全的下拉框。
 highlight Pmenu    guibg=darkgrey  guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
-" 设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
+" 设置 browse 命令打开的目录，current 当前，buffer 当前 buffer 相同，last 上次的目录
 set browsedir=last
 " 可折叠 foldenable/nofoldenable
 set foldenable
@@ -103,17 +103,17 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " 继承前一行的缩进方式
 set autoindent
-" 为C程序提供自动缩进
+" 为 C 程序提供自动缩进
 set smartindent
 set cindent
-" 使用space代替tab.
+" 使用空格代替 tab.
 set expandtab
 set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 " 显示一些不显示的空白字符
-" 通过 set list和 set nolist控制是否显示或是用set list!切换显示
+" 通过 set list 和 set nolist 控制是否显示或是用 set list! 切换显示
 set listchars=tab:>-,eol:$,trail:-
 
 
@@ -146,7 +146,7 @@ endif
 
 filetype off
 
-" 此处规定Vundle的路径
+" 此处规定 Vundle 的路径
 if has("win32")
     set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
     call vundle#begin('$VIM/vimfiles/bundle')
@@ -156,10 +156,10 @@ else
 endif
 
 " 插件管理插件。
-" 所有插件在Filetype之间添加。可以是以下三种形式：
-" vim.org上的脚本名                 Plugin php
-" Plugin github上的作者/项目名称    Plugin gmark/vundle
-" Plugin 一个完整的Git路径          Plugin git://git.wincent.com/commit.git
+" 所有插件在 Filetype 之间添加。可以是以下三种形式：
+" vim.org 上的脚本名                 Plugin php
+" Plugin github 上的作者/项目名称    Plugin gmark/vundle
+" Plugin 一个完整的 Git 路径         Plugin git://git.wincent.com/commit.git
 " Vundle常用指令
 " :PluginList                       列出已经安装的插件
 " :PluginInstall                    安装所有配置文件中的插件
@@ -168,36 +168,36 @@ endif
 " :PluginClean!                     根据配置文件删除插件
 Plugin 'gmarik/Vundle.vim'
 
-" vuejs 组件语法高亮
+" VueJS 组件语法高亮
 Plugin 'posva/vim-vue'
 
-" CSS颜色值背景显示定义的颜色
+" CSS 颜色值背景显示定义的颜色
 Plugin 'ap/vim-css-color'
 
-" html5高亮
+" html5 高亮
 Plugin 'othree/html5.vim'
 
-" JS高亮及HTML/JS混排缩进改善
+" JS 高亮及 HTML/JS 混排缩进改善
 Plugin 'pangloss/vim-javascript'
 
-" php文档产生工具
+" php 文档产生工具
 Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
 autocmd FileType php nnoremap <C-i> :call PhpDocSingle()<CR>
 autocmd FileType php vnoremap <C-i> :call PhpDocRange()<CR>
 
-" emmet 中文介绍http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
+" emmet 中文介绍 http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
 Plugin 'mattn/emmet-vim'
 
 " 侧边树状文件夹浏览
 Plugin 'scrooloose/nerdtree'
 let NERDTreeHighlightCursorline=1
-" 打开文件后，关闭nerdtree
+" 打开文件后，关闭 nerdtree
 " let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
 map <F2> :NERDTreeToggle<CR>
-" 在nerdtree窗口中禁用BD命令。
+" 在 NERDTree 窗口中禁用 BD 命令。
 autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
-" 当关闭得只剩下nerdtree一个窗口时，自动关闭vim
+" 当关闭得只剩下 NERDTree 一个窗口时，自动关闭 vim
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 function! s:CloseIfOnlyNerdTreeLeft()
     if exists("t:NERDTreeBufName")
@@ -209,7 +209,7 @@ function! s:CloseIfOnlyNerdTreeLeft()
     endif
 endfunction
 
-" 侧边栏显示相关函数定义等，依赖http://ctags.sourceforge.net/
+" 侧边栏显示相关函数定义等，依赖h ttp://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
 let g:tagbar_width = 30
 nmap <F1> :TagbarToggle<CR>
@@ -224,7 +224,7 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
-" 代码错误检测 若PHP，需要PHP.exe在PATH环境变量中，其它应该也类似
+" 代码错误检测 若 PHP，需要 PHP.exe 在 PATH 环境变量中，其它应该也类似
 Plugin 'scrooloose/syntastic'
 " 语法错误
 let g:syntastic_error_symbol = ">>"
@@ -234,21 +234,21 @@ let g:syntastic_style_error_symbol="✗"
 let g:syntastic_style_warning_symbol="⚠"
 
 " 开启各类语言的语法检测
-let g:syntastic_go_checkers = 1
-let g:syntastic_php_checkers = 1
+let g:syntastic_go_checkers = ['golint', 'govet']
+let g:syntastic_php_checkers = ['php']
 
 
-" 代码片段，需要python支持
+" 代码片段，需要 Python 支持
  Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 
-" YCM插件。 windows安装麻烦，而且如果有msvcr90.dll的话，还有冲突
+" YCM 插件。 windows 安装麻烦，而且如果有 msvcr90.dll 的话，还有冲突
 if !has("gui_win32")
     Plugin 'Valloric/YouCompleteMe'
-    " 设置成c-n，避免与ultisnips相关快捷键冲突。
+    " 设置成 c-n，避免与 ultisnips 相关快捷键冲突。
     let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
     let g:ycm_filetype_specific_completion_to_disable = {
       \ 'gitcommit': 1,
@@ -339,7 +339,7 @@ let g:startify_custom_header = [
 let g:startify_custom_footer = [
                 \ '',
                 \ '',
-                \ '   适用于Go和PHP语言开发，由caixw整理发布！',
+                \ '   适用于 Go 和 PHP 语言开发，由 caixw 整理发布！',
                 \ ]
 
 
@@ -364,6 +364,6 @@ syn on
 " 映射代码实例的快捷键
 imap <C-u> <C-x><C-o>
 
-" 去除linux下菜单(包含右键菜单)乱码，放最后。
+" 去除 linux 下菜单(包含右键菜单)乱码，放最后。
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
