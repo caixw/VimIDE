@@ -273,8 +273,8 @@ Plugin 'tpope/vim-fugitive'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
-" 使用powerline的箭头，需要安装powerline字体，在未安装powerline字体的情况下，
-" 可以将此值设置为0，这将使用之后的这些默认的符号替换。
+" 使用 powerline 的箭头，需要安装 powerline 字体，在未安装 powerline 字体的情况下，
+" 可以将此值设置为 0，这将使用之后的这些默认的符号替换。
 let g:airline_powerline_fonts = 1
 if g:airline_powerline_fonts == 0
     if !exists('g:airline_symbols')
