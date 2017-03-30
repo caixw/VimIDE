@@ -1,10 +1,10 @@
 "==============================================================================
 " 自用的 vim 配置文件。适用以下版本:
 " widows/linux 下的 Gvim8;
-" macOS 下的 macvim 和vim8
+" macOS 下的 macvim 和 vim8
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.27.20161031
+" Version:      0.3.28.20170330
 " Licence:      MIT
 " =============================================================================
 
@@ -177,6 +177,9 @@ Plugin 'ap/vim-css-color'
 " html5 高亮
 Plugin 'othree/html5.vim'
 
+" swift 语法高亮
+Plugin 'keith/swift.vim'
+
 " JS 高亮及 HTML/JS 混排缩进改善
 Plugin 'pangloss/vim-javascript'
 
@@ -224,19 +227,12 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
-" 代码错误检测 若 PHP，需要 PHP.exe 在 PATH 环境变量中，其它应该也类似
-Plugin 'scrooloose/syntastic'
+" 代码错误检测
+Plugin 'w0rp/ale'
 " 语法错误
-let g:syntastic_error_symbol = ">>"
-let g:syntastic_warning_symbol = ">"
-" 语法风格错误
-let g:syntastic_style_error_symbol="✗"
-let g:syntastic_style_warning_symbol="⚠"
-
-" 开启各类语言的语法检测
-let g:syntastic_go_checkers = ['golint', 'govet']
-let g:syntastic_php_checkers = ['php']
-
+let g:ale_sign_error = ">>"
+let g:ale_sign_warning = "__"
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 " 代码片段，需要 Python 支持
  Plugin 'SirVer/ultisnips'
