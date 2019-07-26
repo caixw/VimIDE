@@ -4,7 +4,7 @@
 " macOS 下的 macvim 和 vim8
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.3.28.20170330
+" Version:      0.4.0.20190726
 " Licence:      MIT
 " =============================================================================
 
@@ -47,12 +47,10 @@ set mousemodel=popup
 set guioptions-=m
 " 不显示工具栏
 set guioptions-=T
-" r代表right，就是在右侧显示滚动条
+" r 代表 right，就是在右侧显示滚动条
 set guioptions+=r
-" b代表bottom，就是不在下面加入滚动条
+" b 代表 bottom，就是不在下面加入滚动条
 set guioptions-=b
-" 窗口位置
-winpos 240 0
 " 高度
 set lines=60
 " 宽度
@@ -69,7 +67,7 @@ set nu
 set hlsearch
 " 搜索时逐字高亮
 "set incsearch
-" 命令行按tab补全时，显示一个候选菜单
+" 命令行按 tab 补全时，显示一个候选菜单
 set wildmenu
 " 高亮显示匹配的符号，大括号什么的
 set showmatch
@@ -141,61 +139,93 @@ if has("gui_running")
 endif
 
 "==============================================================================
-"========================== start Vundle
+"========================== 开始加载插件
 "==============================================================================
 
 filetype off
 
-" 此处规定 Vundle 的路径
-if has("win32")
-    set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
-    call vundle#begin('$VIM/vimfiles/bundle')
-else
-    set rtp+=~/.vim/bundle/Vundle.vim/
-    call vundle#begin('~/.vim/bundle/')
-endif
+call plug#begin('~/.vim/plugged')
 
-" 插件管理插件。
-" 所有插件在 Filetype 之间添加。可以是以下三种形式：
-" vim.org 上的脚本名                 Plugin php
-" Plugin github 上的作者/项目名称    Plugin gmark/vundle
-" Plugin 一个完整的 Git 路径         Plugin git://git.wincent.com/commit.git
-" Vundle常用指令
-" :PluginList                       列出已经安装的插件
-" :PluginInstall                    安装所有配置文件中的插件
-" :PluginInstall!                   更新所有插件
-" :PluginSearch                     搜索插件
-" :PluginClean!                     根据配置文件删除插件
-Plugin 'gmarik/Vundle.vim'
+" lsp 服务以及自动完成功能
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-" VueJS 组件语法高亮
-Plugin 'posva/vim-vue'
-
-" CSS 颜色值背景显示定义的颜色
-Plugin 'ap/vim-css-color'
-
-" html5 高亮
-Plugin 'othree/html5.vim'
-
-" swift 语法高亮
-Plugin 'keith/swift.vim'
-
-" JS 高亮及 HTML/JS 混排缩进改善
-Plugin 'pangloss/vim-javascript'
-
-" php 文档产生工具
-Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
-autocmd FileType php nnoremap <C-i> :call PhpDocSingle()<CR>
-autocmd FileType php vnoremap <C-i> :call PhpDocRange()<CR>
-
-" emmet 中文介绍 http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
-Plugin 'mattn/emmet-vim'
 
 " 侧边树状文件夹浏览
-Plugin 'scrooloose/nerdtree'
-let NERDTreeHighlightCursorline=1
+Plug 'scrooloose/nerdtree'
+
+" 侧边栏显示相关函数定义等，依赖 https://ctags.io/
+Plug 'majutsushi/tagbar'
+
+" Go 相关插件
+Plug 'fatih/vim-go'
+
+" 代码片段，需要 Python 支持
+Plug 'SirVer/ultisnips'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+
+" 多光标支持。
+Plug 'terryma/vim-multiple-cursors'
+
+" 缩进高亮，显示一条竖线
+Plug 'Yggdroot/indentLine'
+
+" 快速注释
+Plug 'scrooloose/nerdcommenter'
+
+" 显示 git 的更改内容
+Plug 'airblade/vim-gitgutter'
+
+" 对 EditorConfig 的支持
+Plug 'editorconfig/editorconfig-vim'
+
+" airline 状态栏美化。
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" 一些好用的主题
+Plug 'tomasr/molokai'
+Plug 'Haron-Prime/evening_vim'
+Plug 'vim-scripts/desertEx'
+Plug 'lifepillar/vim-solarized8'
+
+" 启动页面
+Plug 'mhinz/vim-startify'
+
+" 中文文档。
+Plug 'asins/vimcdoc'
+
+call plug#end()
+
+filetype plugin indent on
+
+syntax enable
+syntax on
+
+"==============================================================================
+"======================== 开始插件配置
+"==============================================================================
+
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+    autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
+    autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
+    autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
+endif
+
+
+" NERDTree
 " 打开文件后，关闭 nerdtree
 " let NERDTreeQuitOnOpen=1
+let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
 map <F2> :NERDTreeToggle<CR>
 " 在 NERDTree 窗口中禁用 BD 命令。
@@ -212,63 +242,70 @@ function! s:CloseIfOnlyNerdTreeLeft()
     endif
 endfunction
 
-" 侧边栏显示相关函数定义等，依赖h ttp://ctags.sourceforge.net/
-Plugin 'majutsushi/tagbar'
+
+" tagbar
 let g:tagbar_width = 30
 nmap <F1> :TagbarToggle<CR>
 let g:tagbar_left =1
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
-" golang相关插件
-Plugin 'fatih/vim-go'
+
+" vim-go
 let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_sructs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
-" 代码错误检测
-Plugin 'w0rp/ale'
-" 语法错误
-let g:ale_sign_error = ">>"
-let g:ale_sign_warning = "__"
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
-" 代码片段，需要 Python 支持
- Plugin 'SirVer/ultisnips'
+let g:asyncomplete_auto_popup = 1
+
+
+" UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 
-" YCM 插件。 windows 安装麻烦，而且如果有 msvcr90.dll 的话，还有冲突
-if !has("gui_win32")
-    Plugin 'Valloric/YouCompleteMe'
-    " 设置成 c-n，避免与 ultisnips 相关快捷键冲突。
-    let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-    let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'gitcommit': 1,
-      \ 'php': 1
-      \}
-endif
 
-" 多光标支持。
-Plugin 'terryma/vim-multiple-cursors'
+" editorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-" 缩进高亮，显示一条竖线
-Plugin 'Yggdroot/indentLine'
 
-" 快速注释
-Plugin 'scrooloose/nerdcommenter'
-
-" 显示git的更改内容
-Plugin 'airblade/vim-gitgutter'
-
-" 对git命令的包装
-Plugin 'tpope/vim-fugitive'
-
-" airline 状态栏美化。
-Plugin 'bling/vim-airline'
+" ariline
 " 使用 powerline 的箭头，需要安装 powerline 字体，在未安装 powerline 字体的情况下，
 " 可以将此值设置为 0，这将使用之后的这些默认的符号替换。
 let g:airline_powerline_fonts = 1
@@ -303,7 +340,7 @@ let g:airline_mode_map = {
 
 set laststatus=2
 
-" airline-tabline扩展设计，若需要更专业的buffer列表显示插件，
+" airline-tabline 扩展设计，若需要更专业的 buffer 列表显示插件，
 " 可以使用 techlivezheng/vim-plugin-minibufexpl 插件！
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -316,11 +353,8 @@ if g:airline_powerline_fonts == 0
     let g:airline#extensions#tabline#right_alt_sep = '❮'
 endif
 
-" 一些好用的主题
-Plugin 'tomasr/molokai'
 
-" 启动页面
-Plugin 'mhinz/vim-startify'
+" 启动画面
 let g:startify_custom_header = [
                 \ '   __      ___              _  _______     _________ ',
                 \ '   \ \    / (_)            | | | |____ \  | |_______|',
@@ -335,31 +369,25 @@ let g:startify_custom_header = [
 let g:startify_custom_footer = [
                 \ '',
                 \ '',
-                \ '   适用于 Go 和 PHP 语言开发，由 caixw 整理发布！',
+                \ '   适用于 Go 语言开发，由 caixw 整理发布！',
                 \ ]
 
 
-" 中文文档。
-Bundle 'asins/vimcdoc'
+" 中文在斜体显示时，会比较怪异，统一去掉
+let g:solarized_italics = 0
+
+
 " 帮助语言为中文
 set helplang=cn
 
-call vundle#end()
-
-filetype indent on
-filetype plugin on
-"==============================================================================
-"======================== end Bundle
-"==============================================================================
-
-colors molokai
+colors solarized8
 set background=dark
 
 " 自动开启语法高亮
 syn on
-" 映射代码实例的快捷键
-imap <C-u> <C-x><C-o>
+
 
 " 去除 linux 下菜单(包含右键菜单)乱码，放最后。
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
