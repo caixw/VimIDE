@@ -4,7 +4,7 @@
 " macOS 下的 macvim 和 vim8
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.4.1.20220928
+" Version:      0.4.2.20220928
 " Licence:      MIT
 " =============================================================================
 
@@ -120,19 +120,19 @@ if has("gui_running")
     if has("gui_gtk2")
         set guifont=Droid\ Sans\ Mono\ 12
         " 比英文字体大一点，这样汉字的间距就不会太大了
-        set guifontwide=Droid\ Sans\ 13
+        "set guifontwide=Droid\ Sans\ 13
     elseif has("gui_kde")
         "set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
     elseif has("x11")
         "set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     elseif has("gui_macvim")
         set guifont=monofur\ for\ Powerline:h15
-        set guifontwide=PingFang:h15
+        "set guifontwide=PingFang:h15
     elseif has("gui_kde")
         " todo
     elseif has("gui_win32")
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
-        set guifontwide=Microsoft\ YaHei\ UI:h12
+        "set guifontwide=Microsoft\ YaHei\ UI:h12
     else
         "set guifont=YaHei\ Consolas\ Hybrid:h10
     endif
@@ -271,7 +271,6 @@ let g:tagbar_type_go = {
         \ 'ctype' : 't',
         \ 'ntype' : 'n'
     \ },
-    \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
