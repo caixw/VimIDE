@@ -4,7 +4,7 @@
 " macOS 下的 macvim 和 vim8
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.4.0.20190726
+" Version:      0.4.1.20220928
 " Licence:      MIT
 " =============================================================================
 
@@ -54,7 +54,7 @@ set guioptions-=b
 " 高度
 set lines=60
 " 宽度
-set columns=120
+set columns=220
 " 设定光标离窗口上下边界 3 行时窗口自动滚动
 set scrolloff=3
 " 高亮显示当前行
@@ -127,7 +127,7 @@ if has("gui_running")
         "set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     elseif has("gui_macvim")
         set guifont=monofur\ for\ Powerline:h15
-        set guifontwide=STHeiti:h15
+        set guifontwide=PingFang:h15
     elseif has("gui_kde")
         " todo
     elseif has("gui_win32")
@@ -244,7 +244,7 @@ endfunction
 
 
 " tagbar
-let g:tagbar_width = 30
+let g:tagbar_width = 50
 nmap <F1> :TagbarToggle<CR>
 let g:tagbar_left =1
 let g:tagbar_type_go = {
