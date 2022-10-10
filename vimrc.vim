@@ -4,7 +4,7 @@
 " macOS 下的 macvim 和 vim8
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.4.2.20220928
+" Version:      0.4.3.20221011
 " Licence:      MIT
 " =============================================================================
 
@@ -244,23 +244,23 @@ endfunction
 
 
 " tagbar
-let g:tagbar_width = 50
 nmap <F1> :TagbarToggle<CR>
-let g:tagbar_left =1
+let g:tagbar_width = 50
+" let g:tagbar_left =1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
+        \ 'p:包',
+        \ 'i:引用包:1',
+        \ 'c:常量',
+        \ 'v:变量',
+        \ 't:类型',
+        \ 'n:接口',
+        \ 'w:字段',
+        \ 'e:嵌入对象',
+        \ 'm:方法',
+        \ 'r:构建函数',
+        \ 'f:函数'
     \ ],
     \ 'sro' : '.',
     \ 'kind2scope' : {
@@ -285,9 +285,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_sructs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
 
 
 let g:asyncomplete_auto_popup = 1
