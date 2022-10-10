@@ -3,9 +3,7 @@ VimIDE
 
 自用的一个 vim 配置文件，适用于`Go`与`PHP`语言环境。
 
-适用版本：
-windows/linux 下只通过 Gvim8 的测试。
-macOS 下 vim8 或是对应版本的 macvim。
+适用版本：macOS 下 vim9 或是对应版本的 macvim，其它系统未测试。
 
 ![screenshot](https://raw.github.com/caixw/VimIDE/master/images/screenshot.png)
 
