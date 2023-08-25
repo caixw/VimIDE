@@ -1,14 +1,13 @@
 "==============================================================================
 " 自用的 vim 配置文件。适用以下版本:
-" widows/linux 下的 Gvim8;
-" macOS 下的 macvim 和 vim8
+" macOS 下的 macvim 和 vim9
 "
 " Author:       caixw <https://github.com/caixw>
-" Version:      0.4.3.20221011
+" Version:      0.5.0.20230825
 " Licence:      MIT
 " =============================================================================
 
-" 设置不兼容 VI 模式，在增强模式下运行
+" 设置不兼容 VI 模式，在增强模式下运行。
 set nocompatible
 
 
@@ -37,7 +36,7 @@ set autochdir
 
 
 let $LANG='zh_CN.UTF-8'
-" 菜单语言，必须要在 set encoding 之后,界面加载之前
+" 菜单语言，必须要在 set encoding 之后，界面加载之前
 set langmenu=zh_CN.utf-8
 " 自动隐藏鼠标
 set mousehide
@@ -151,6 +150,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'ryanolsonx/vim-lsp-typescript'
 
 
 " 侧边树状文件夹浏览
@@ -227,7 +227,10 @@ endif
 " let NERDTreeQuitOnOpen=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
-map <F2> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=40
+let g:NERDTreeChDirMode=2
+let g:NERDChristmasTree=1
+map <F1> :NERDTreeToggle<CR>
 " 在 NERDTree 窗口中禁用 BD 命令。
 autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
 " 当关闭得只剩下 NERDTree 一个窗口时，自动关闭 vim
@@ -244,8 +247,8 @@ endfunction
 
 
 " tagbar
-nmap <F1> :TagbarToggle<CR>
-let g:tagbar_width = 50
+nmap <F2> :TagbarToggle<CR>
+let g:tagbar_width = 40
 " let g:tagbar_left =1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
