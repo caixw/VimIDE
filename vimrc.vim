@@ -217,8 +217,8 @@ if executable('gopls')
         \ })
     autocmd FileType go setlocal omnifunc=lsp#complete
     autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
-    autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
-    autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
+    autocmd FileType go nmap <buffer> cn <plug>(lsp-next-error)
+    autocmd FileType go nmap <buffer> cp <plug>(lsp-previous-error)
 endif
 
 
