@@ -1,8 +1,8 @@
 ---------------------------------------------------
 -- NeoVIM 配置
 --
--- Author:    caixw <https://github.com/caixw>
--- Version:   0.5.0.20230828
+-- Author:	  caixw <https://github.com/caixw>
+-- Version:   0.7.0.20231011
 -- Licence:   MIT
 --
 -- NOTE: macOS 终端下部分快捷键可能会不可用。
@@ -34,52 +34,40 @@ vim.o.hlsearch = true -- 开启搜索匹配高亮
 vim.o.smartcase = true -- 搜索时自行判断是否需要忽略大小写
 
 -- tab 相关设置
--- tab键转换为 4 个空格
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = false
 vim.bo.expandtab = false
-vim.o.shiftwidth = 4 -- << >> 缩进时移动的长度
+vim.o.shiftwidth = 4
 vim.bo.shiftwidth = 4
 vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.smartindent = true
 
--- 使用jk移动光标时，上下方保留8行
+-- 使用 jk 移动光标时，上下方保留8行
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 
 vim.o.history = 1000
-vim.o.list = true
 vim.o.undofile = true
+
+vim.o.list = true
+vim.o.listchars = "tab:» ,lead:·,trail:·,extends:…"
 
 -- 样式
 vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.opt.termguicolors = true
 
+-- gui 限定
+vim.o.guifont = "Monofur Nerd Font Mono:h15"
+
 
 ---------------- 开始插件设置
 
--- 几种模式对应的中文
-local modes = {
-	NORMAL = "标准",
-	VISUAL = "可视",
-	INSERT = "插入",
-	SELECT = "选择",
-	COMMAND = "命令行",
-	REPLACE = "替换",
-}
-
--- 根据模式返回中文名称
-function mode_name(mode)
-	if modes[mode] ~= nil then
-		return modes[mode]
-	end
-	return mode
-end
-
 local bufferline
+
+local floatBorder = 'single' -- 浮动窗口的边框
 
 -- 加载 lazy 插件管理
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -95,42 +83,63 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- 其它插件
-
 require("lazy").setup({
 	{
 		-- LSP
 		-- https://github.com/neovim/nvim-lspconfig
 		"neovim/nvim-lspconfig",
 		config = function()
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 			require("lspconfig").gopls.setup({
 				on_attach = function(client, buffer)
+					-- 几种需要边框的
+					require('lspconfig.ui.windows').default_options.border = floatBorder
+					vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = floatBorder})
+					vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = floatBorder})
+					vim.diagnostic.config({float = {border = floatBorder}})
+
 					-- 在插入模式可以按 <c-x><c-o> 触发补全
-					vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
+					-- vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 					local opts = { noremap=true, silent=true }
-					vim.api.nvim_buf_set_keymap(buffer, "n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+					vim.api.nvim_buf_set_keymap(buffer, "n", "<c-k>", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 					vim.api.nvim_buf_set_keymap(buffer, "n", "<c-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-					vim.api.nvim_buf_set_keymap(buffer, "n", "<gD>", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-					vim.api.nvim_buf_set_keymap(buffer, "n", "<gd>", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+					vim.api.nvim_buf_set_keymap(buffer, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+					vim.api.nvim_buf_set_keymap(buffer, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 					vim.api.nvim_buf_set_keymap(buffer, 'n', '<c-8>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
-					-- format on save
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = buffer,
-							callback = function()
-								vim.lsp.buf.format()
-							end,
-						})
-					end
-				end -- end on_attach
+					-- imports
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						pattern = "*.go",
+						callback = function()
+							local params = vim.lsp.util.make_range_params()
+							params.context = {only = {"source.organizeImports"}}
+							-- 可以有第四个参数，默认为 1000 ms，如果有多次写入可以添加此值，
+							-- 比如：vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 2000)
+							local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+							for cid, res in pairs(result or {}) do
+								for _, r in pairs(res.result or {}) do
+									if r.edit then
+										local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-8"
+										vim.lsp.util.apply_workspace_edit(r.edit, enc)
+									end
+								end
+							end
+							vim.lsp.buf.format({async = false})
+						end -- end callback
+					})
+				end, -- end on_attach
+
+				settings = {
+					gopls = {
+						gofumpt = true,
+						staticcheck = true,
+						analyses = {
+							unusedparams = true
+						}
+					}
+				},
 			})
-		end
+		end -- end config
 	},
 	{
 		-- 智能感知
@@ -154,6 +163,7 @@ require("lazy").setup({
 						vim.fn["vsnip#anonymous"](args.body)
 					end,
 				},
+
 				mapping = cmp.mapping.preset.insert({
 					['<C-n>'] = cmp.mapping.select_next_item(),
 					['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -161,6 +171,10 @@ require("lazy").setup({
 					['<C-e>'] = cmp.mapping.abort(),
 					['<CR>'] = cmp.mapping.confirm({ select = true }),
 				}),
+
+				window = {
+					documentation = cmp.config.window.bordered()
+				},
 
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
@@ -174,11 +188,6 @@ require("lazy").setup({
 				capabilities = capabilities
 			}
 		end
-	},
-	{
-		-- 高亮缩进
-		-- https://github.com/lukas-reineke/indent-blankline.nvim
-		-- "lukas-reineke/indent-blankline.nvim",
 	},
 	{
 		-- buffer 栏
@@ -212,12 +221,18 @@ require("lazy").setup({
 					change_dir = {
 						enable = true,
 						global = true
+					},
+					open_file = {
+						resize_window = true
 					}
 				},
 				renderer = {
 					indent_markers = {
 						enable = true
 					}
+				},
+				view = {
+					width = 40
 				}
 			})
 		end
@@ -228,6 +243,22 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
+			local modes = { -- 几种模式对应的中文
+				NORMAL = "标准",
+				VISUAL = "可视",
+				INSERT = "插入",
+				SELECT = "选择",
+				COMMAND = "命令行",
+				REPLACE = "替换",
+			}
+
+			local mode_name = function(mode) -- 根据模式返回中文名称
+				if modes[mode] ~= nil then
+					return modes[mode]
+				end
+				return mode
+			end
+
 			require("lualine").setup({
 				sections = {
 					lualine_a = {{'mode',fmt = mode_name }},
@@ -236,11 +267,20 @@ require("lazy").setup({
 		end
 	},
 	{
+		--https://github.com/sindrets/diffview.nvim
+		"sindrets/diffview.nvim",
+		config = function()
+			require("diffview").setup()
+		end
+	},
+	{
 		-- 文档结构
 		-- https://github.com/simrat39/symbols-outline.nvim
 		"simrat39/symbols-outline.nvim",
 		config = function()
-			require("symbols-outline").setup()
+			require("symbols-outline").setup({
+				width = 20
+			})
 		end
 	},
 	{
@@ -252,9 +292,24 @@ require("lazy").setup({
 		end
 	},
 	{
+		-- https://github.com/goolord/alpha-nvim
+		"goolord/alpha-nvim",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
+		end
+	},
+	{
 		-- https://github.com/nvim-telescope/telescope.nvim
 		"nvim-telescope/telescope.nvim", branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		-- https://github.com/dstein64/nvim-scrollview
+		"dstein64/nvim-scrollview",
+		config = function()
+			require("scrollview").setup()
+		end
 	},
 	{
 		-- https://github.com/folke/todo-comments.nvim
@@ -269,6 +324,10 @@ require("lazy").setup({
 		-- https://github.com/marko-cerovac/material.nvim
 		"marko-cerovac/material.nvim",
 	},
+}, {
+	ui = {
+		border = floatBorder
+	}
 })
 
 vim.cmd.colorscheme "material"
@@ -276,8 +335,8 @@ vim.cmd.colorscheme "material"
 vim.keymap.set("n", "<f1>", "<cmd>NvimTreeToggle<cr>")
 vim.keymap.set("n", "<f2>", "<cmd>SymbolsOutline<cr>")
 
--- 以下的 <d> 只有特定的 gui 客户端才有效果。
--- neovide 可用，其它的未试。
+-- 以下的 <d> 绑定了 macOS 的 command 键，每个 gui 客户端的定义可能不一样。
+-- neovide，neovim-qt 可用，其它的未试。
 
 -- 允许 cmd+c,cmd+v
 vim.g.neovide_input_use_logo = 1
@@ -293,7 +352,14 @@ end
 
 -- cmd+p 打开文件搜索
 vim.keymap.set("n", "<D-p>", "<cmd>:Telescope find_files<cr>", { noremap = true, silent = true})
+vim.keymap.set("n", "<D-o>", "<cmd>:Telescope lsp_document_symbols<cr>", { noremap = true, silent = true})
 
 -- cmd+w / cmd+s
 vim.keymap.set("n", "<D-w>", "<cmd>:bd<cr>", { noremap = true, silent = true})
 vim.keymap.set("n", "<D-s>", "<cmd>:w<cr>", { noremap = true, silent = true})
+
+-- neovide 限定
+if vim.g.neovide then
+	vim.g.neovide_scroll_animation_length = 0
+	vim.g.neovide_cursor_animation_length = 0
+end
