@@ -54,13 +54,17 @@ vim.o.undofile = true
 vim.o.list = true
 vim.o.listchars = "tab:» ,lead:·,trail:·,extends:…"
 
--- 样式
-vim.o.background = "dark"
-vim.o.termguicolors = true
-vim.opt.termguicolors = true
-
 -- gui 限定
 vim.o.guifont = "Monofur Nerd Font Mono:h15"
+
+-- 代码折叠，可以有以下值：
+-- manual
+-- indent
+-- marker
+-- expr
+-- syntax
+-- diff
+vim.opt.foldmethod = "indent"
 
 
 ---------------- 开始插件设置
@@ -330,7 +334,13 @@ require("lazy").setup({
 	}
 })
 
+-- 样式
+vim.o.background = "dark"
+vim.o.termguicolors = true
+vim.opt.termguicolors = true
+vim.g.material_style = "Oceanic"
 vim.cmd.colorscheme "material"
+vim.keymap.set("n","<space>","za",{noremap = true, silent = true}) -- 折叠从 za 改为 space
 
 vim.keymap.set("n", "<f1>", "<cmd>NvimTreeToggle<cr>")
 vim.keymap.set("n", "<f2>", "<cmd>SymbolsOutline<cr>")
@@ -357,6 +367,9 @@ vim.keymap.set("n", "<D-o>", "<cmd>:Telescope lsp_document_symbols<cr>", { norem
 -- cmd+w / cmd+s
 vim.keymap.set("n", "<D-w>", "<cmd>:bd<cr>", { noremap = true, silent = true})
 vim.keymap.set("n", "<D-s>", "<cmd>:w<cr>", { noremap = true, silent = true})
+
+vim.keymap.set("n", "<f2>", "<cmd>:lua vim.lsp.buf.rename()<cr>", { noremap = true, silent = true})
+
 
 -- neovide 限定
 if vim.g.neovide then
