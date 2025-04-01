@@ -223,7 +223,7 @@ autocmd WinEnter * call CloseIfOnlyNerdTreeLeft()
 
 
 # tagbar
-nmap <F2> :TagbarToggle<CR>
+nmap <F4> :TagbarToggle<CR>
 g:tagbar_width = 40
 g:tagbar_type_go = {
 	\ 'ctagstype': 'go',

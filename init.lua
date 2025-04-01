@@ -1,15 +1,14 @@
 ---------------------------------------------------
 -- NeoVIM 配置
 --
--- Author:	  caixw <https://github.com/caixw>
--- Version:   0.7.0.20231011
+-- Author:    caixw <https://github.com/caixw>
+-- Version:   0.8.0.20250401
 -- Licence:   MIT
 --
 -- NOTE: macOS 终端下部分快捷键可能会不可用。
 ---------------------------------------------------
 
 vim.g.encoding = "utf-8"
-vim.o.termencoding = "utf-8"
 vim.o.syntax = "enable"
 vim.o.autochdir = true -- 自动切换目录
 vim.o.fileformats = unix
@@ -65,6 +64,7 @@ vim.o.guifont = "Monofur Nerd Font Mono:h15"
 -- syntax
 -- diff
 vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
 
 
 ---------------- 开始插件设置
@@ -142,6 +142,26 @@ require("lazy").setup({
 						}
 					}
 				},
+			})
+
+			require('lspconfig').ts_ls.setup({
+				on_attach = function(client, buffer)
+					-- 几种需要边框的
+					require('lspconfig.ui.windows').default_options.border = floatBorder
+					vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = floatBorder})
+					vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = floatBorder})
+					vim.diagnostic.config({float = {border = floatBorder}})
+
+					-- 在插入模式可以按 <c-x><c-o> 触发补全
+					-- vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+					local opts = { noremap=true, silent=true }
+					vim.api.nvim_buf_set_keymap(buffer, "n", "<c-k>", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+					vim.api.nvim_buf_set_keymap(buffer, "n", "<c-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+					vim.api.nvim_buf_set_keymap(buffer, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+					vim.api.nvim_buf_set_keymap(buffer, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+					vim.api.nvim_buf_set_keymap(buffer, 'n', '<c-8>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+				end,
 			})
 		end -- end config
 	},
@@ -343,7 +363,7 @@ vim.cmd.colorscheme "material"
 vim.keymap.set("n","<space>","za",{noremap = true, silent = true}) -- 折叠从 za 改为 space
 
 vim.keymap.set("n", "<f1>", "<cmd>NvimTreeToggle<cr>")
-vim.keymap.set("n", "<f2>", "<cmd>SymbolsOutline<cr>")
+vim.keymap.set("n", "<f4>", "<cmd>SymbolsOutline<cr>")
 
 -- 以下的 <d> 绑定了 macOS 的 command 键，每个 gui 客户端的定义可能不一样。
 -- neovide，neovim-qt 可用，其它的未试。
