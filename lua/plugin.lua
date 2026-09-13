@@ -20,52 +20,44 @@ require("lazy").setup({
 	-- 智能感知
 	-- https://github.com/saghen/blink.cmp
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		'saghen/blink.cmp',
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/cmp-vsnip",
+			'saghen/blink.lib',
+			-- optional: provides snippets for the snippet source
+			'rafamadriz/friendly-snippets',
 		},
-		config = function()
-			vim.opt.completeopt = { "menu", "menuone", "noselect" }
-			local cmp = require("cmp")
+		build = function()
+			-- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
+			-- you can use `gb` in `:Lazy` to rebuild the plugin as needed
+			require('blink.cmp').build():pwait()
+		end,
 
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
-					end,
-				},
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+			-- 'super-tab' for mappings similar to vscode (tab to accept)
+			-- 'enter' for enter to accept
+			-- 'none' for no mappings
+			--
+			-- All presets have the following mappings:
+			-- C-space: Open menu or open docs if already open
+			-- C-n/C-p or Up/Down: Select next/previous item
+			-- C-e: Hide menu
+			-- C-k: Toggle signature help (if signature.enabled = true)
+			--
+			-- See :h blink-cmp-config-keymap for defining your own keymap
+			keymap = { preset = 'default' },
 
-				mapping = cmp.mapping.preset.insert({
-					['<C-n>'] = cmp.mapping.select_next_item(),
-					['<C-p>'] = cmp.mapping.select_prev_item(),
-					['<C-y>'] = cmp.mapping.complete(),
-					['<C-e>'] = cmp.mapping.abort(),
-					['<CR>'] = cmp.mapping.confirm({ select = true }),
-				}),
+			-- (Default) Only show the documentation popup when manually triggered
+			completion = { documentation = { auto_show = false } },
 
-				window = {
-					documentation = cmp.config.window.bordered()
-				},
-
-				sources = cmp.config.sources({
-					{ name = 'nvim_lsp' },
-					{ name = 'nvim_path' },
-					{ name = 'vsnip' },
-				})
-			}) -- end setup
-
-			local capabilities = require('cmp_nvim_lsp').default_capabilities()
-			vim.lsp.config('gopls', {
-				capabilities = capabilities
-			})
-		end
-	},
-
+			-- (Default) list of enabled providers defined so that you can extend it
+			-- elsewhere in your config, without redefining it, due to `opts_extend`
+			sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
+		},
+	}
+	,
 	-- buffer 栏
 	-- https://github.com/akinsho/bufferline.nvim
 	{

@@ -1,12 +1,8 @@
----------------------------------------------------
--- NeoVIM 配置
+-- SPDX-FileCopyrightText: 2026 caixw
 --
--- Author:    caixw <https://github.com/caixw>
--- Version:   0.9.0.20260910
--- Licence:   MIT
---
--- NOTE: macOS 终端下部分快捷键可能会不可用。
----------------------------------------------------
+-- SPDX-License-Identifier: MIT
+
+-- NOTE: 终端下部分快捷键可能会与终端本身的快捷键存在冲突。
 
 require('options')
 require('lsp')

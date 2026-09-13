@@ -15,6 +15,7 @@ vim.keymap.set('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
 vim.keymap.set('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.keymap.set('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.keymap.set('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.keymap.set('n', '<C-8>', vim.diagnostic.goto_next, { noremap = true, silent = true, desc = '下一个错误'})
 
 -- 按 cmd+number 切换
 local bufferline = require("bufferline")
@@ -25,12 +26,11 @@ end
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    -- 获取当前缓冲区的 ID
-    local bufnr = ev.buf
+    local bufNumber = ev.buf -- 获取当前缓冲区的 ID
 
     -- 定义一个辅助函数，简化快捷键设置
     local function map(mode, lhs, rhs, desc)
-      vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+      vim.keymap.set(mode, lhs, rhs, { buffer = bufNumber, desc = desc })
     end
 
     -- 常用 LSP 快捷键 (可根据需要修改)
@@ -40,10 +40,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', 'gr', vim.lsp.buf.references, '查找引用')
     map('n', '<C-k>', vim.lsp.buf.hover, '显示悬浮文档')
     map('n', '<C-a>', vim.lsp.buf.code_action, '操作菜单')
-    map('n', '<C-8>', vim.diagnostic.goto_next, '下一个错误')
     map('n', '<leader>rn', vim.lsp.buf.rename, '重命名符号')
     map('n', '<leader>ca', vim.lsp.buf.code_action, '代码操作')
     map('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, '格式化代码')
+    map('n', '<f2>', function() vim.lsp.buf.rename() end, '重命名符号')
   end,
 })
 
@@ -56,4 +56,3 @@ vim.keymap.set("n", "<D-o>", "<cmd>:Telescope lsp_document_symbols<cr>", { norem
 vim.keymap.set("n", "<D-w>", "<cmd>:bd<cr>", { noremap = true, silent = true})
 vim.keymap.set("n", "<D-s>", "<cmd>:w<cr>", { noremap = true, silent = true})
 
-vim.keymap.set("n", "<f2>", "<cmd>:lua vim.lsp.buf.rename()<cr>", { noremap = true, silent = true})
